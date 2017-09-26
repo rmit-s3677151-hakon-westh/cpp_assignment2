@@ -47,7 +47,7 @@ std::pair<std::pair<int,int>, std::pair<int,int>>
     std::pair<int,int> start;
     std::pair<int,int> end;
     std::cout << "Please enter your next move: " ;
-    std::pair<int,int>> draughts::ncview::game_window::get_move_input(void);
+    window::get_input(input);
     std::vector<std::string> moves;
     std::vector<std::string> coords;
     boost::split(moves, input, [](char ch){return ch == '-';});
