@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sh6/S3655676/Draught
+CMAKE_SOURCE_DIR = /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sh6/S3655676/Draught
+CMAKE_BINARY_DIR = /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Draught.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/Draught.dir/flags.make
 
 CMakeFiles/Draught.dir/src/main.cpp.o: CMakeFiles/Draught.dir/flags.make
 CMakeFiles/Draught.dir/src/main.cpp.o: src/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh6/S3655676/Draught/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Draught.dir/src/main.cpp.o"
-	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/main.cpp.o -c /home/sh6/S3655676/Draught/src/main.cpp
+	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/main.cpp.o -c /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/main.cpp
 
 CMakeFiles/Draught.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draught.dir/src/main.cpp.i"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh6/S3655676/Draught/src/main.cpp > CMakeFiles/Draught.dir/src/main.cpp.i
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/main.cpp > CMakeFiles/Draught.dir/src/main.cpp.i
 
 CMakeFiles/Draught.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draught.dir/src/main.cpp.s"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh6/S3655676/Draught/src/main.cpp -o CMakeFiles/Draught.dir/src/main.cpp.s
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/main.cpp -o CMakeFiles/Draught.dir/src/main.cpp.s
 
 CMakeFiles/Draught.dir/src/main.cpp.o.requires:
 .PHONY : CMakeFiles/Draught.dir/src/main.cpp.o.requires
@@ -77,17 +77,17 @@ CMakeFiles/Draught.dir/src/main.cpp.o.provides.build: CMakeFiles/Draught.dir/src
 
 CMakeFiles/Draught.dir/src/model/model.cpp.o: CMakeFiles/Draught.dir/flags.make
 CMakeFiles/Draught.dir/src/model/model.cpp.o: src/model/model.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh6/S3655676/Draught/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Draught.dir/src/model/model.cpp.o"
-	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/model/model.cpp.o -c /home/sh6/S3655676/Draught/src/model/model.cpp
+	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/model/model.cpp.o -c /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/model/model.cpp
 
 CMakeFiles/Draught.dir/src/model/model.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draught.dir/src/model/model.cpp.i"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh6/S3655676/Draught/src/model/model.cpp > CMakeFiles/Draught.dir/src/model/model.cpp.i
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/model/model.cpp > CMakeFiles/Draught.dir/src/model/model.cpp.i
 
 CMakeFiles/Draught.dir/src/model/model.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draught.dir/src/model/model.cpp.s"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh6/S3655676/Draught/src/model/model.cpp -o CMakeFiles/Draught.dir/src/model/model.cpp.s
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/model/model.cpp -o CMakeFiles/Draught.dir/src/model/model.cpp.s
 
 CMakeFiles/Draught.dir/src/model/model.cpp.o.requires:
 .PHONY : CMakeFiles/Draught.dir/src/model/model.cpp.o.requires
@@ -100,17 +100,17 @@ CMakeFiles/Draught.dir/src/model/model.cpp.o.provides.build: CMakeFiles/Draught.
 
 CMakeFiles/Draught.dir/src/nc_controller/command.cpp.o: CMakeFiles/Draught.dir/flags.make
 CMakeFiles/Draught.dir/src/nc_controller/command.cpp.o: src/nc_controller/command.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh6/S3655676/Draught/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Draught.dir/src/nc_controller/command.cpp.o"
-	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/nc_controller/command.cpp.o -c /home/sh6/S3655676/Draught/src/nc_controller/command.cpp
+	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/nc_controller/command.cpp.o -c /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/nc_controller/command.cpp
 
 CMakeFiles/Draught.dir/src/nc_controller/command.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draught.dir/src/nc_controller/command.cpp.i"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh6/S3655676/Draught/src/nc_controller/command.cpp > CMakeFiles/Draught.dir/src/nc_controller/command.cpp.i
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/nc_controller/command.cpp > CMakeFiles/Draught.dir/src/nc_controller/command.cpp.i
 
 CMakeFiles/Draught.dir/src/nc_controller/command.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draught.dir/src/nc_controller/command.cpp.s"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh6/S3655676/Draught/src/nc_controller/command.cpp -o CMakeFiles/Draught.dir/src/nc_controller/command.cpp.s
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/nc_controller/command.cpp -o CMakeFiles/Draught.dir/src/nc_controller/command.cpp.s
 
 CMakeFiles/Draught.dir/src/nc_controller/command.cpp.o.requires:
 .PHONY : CMakeFiles/Draught.dir/src/nc_controller/command.cpp.o.requires
@@ -123,17 +123,17 @@ CMakeFiles/Draught.dir/src/nc_controller/command.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.o: CMakeFiles/Draught.dir/flags.make
 CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.o: src/nc_controller/controller.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh6/S3655676/Draught/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.o"
-	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.o -c /home/sh6/S3655676/Draught/src/nc_controller/controller.cpp
+	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.o -c /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/nc_controller/controller.cpp
 
 CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.i"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh6/S3655676/Draught/src/nc_controller/controller.cpp > CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.i
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/nc_controller/controller.cpp > CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.i
 
 CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.s"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh6/S3655676/Draught/src/nc_controller/controller.cpp -o CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.s
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/nc_controller/controller.cpp -o CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.s
 
 CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.o.requires:
 .PHONY : CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.o.requires
@@ -146,17 +146,17 @@ CMakeFiles/Draught.dir/src/nc_controller/controller.cpp.o.provides.build: CMakeF
 
 CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.o: CMakeFiles/Draught.dir/flags.make
 CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.o: src/ncview/add_player_window.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh6/S3655676/Draught/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.o"
-	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.o -c /home/sh6/S3655676/Draught/src/ncview/add_player_window.cpp
+	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.o -c /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/add_player_window.cpp
 
 CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.i"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh6/S3655676/Draught/src/ncview/add_player_window.cpp > CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.i
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/add_player_window.cpp > CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.i
 
 CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.s"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh6/S3655676/Draught/src/ncview/add_player_window.cpp -o CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.s
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/add_player_window.cpp -o CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.s
 
 CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.o.requires:
 .PHONY : CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.o.requires
@@ -169,17 +169,17 @@ CMakeFiles/Draught.dir/src/ncview/add_player_window.cpp.o.provides.build: CMakeF
 
 CMakeFiles/Draught.dir/src/ncview/game_window.cpp.o: CMakeFiles/Draught.dir/flags.make
 CMakeFiles/Draught.dir/src/ncview/game_window.cpp.o: src/ncview/game_window.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh6/S3655676/Draught/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Draught.dir/src/ncview/game_window.cpp.o"
-	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/game_window.cpp.o -c /home/sh6/S3655676/Draught/src/ncview/game_window.cpp
+	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/game_window.cpp.o -c /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/game_window.cpp
 
 CMakeFiles/Draught.dir/src/ncview/game_window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draught.dir/src/ncview/game_window.cpp.i"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh6/S3655676/Draught/src/ncview/game_window.cpp > CMakeFiles/Draught.dir/src/ncview/game_window.cpp.i
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/game_window.cpp > CMakeFiles/Draught.dir/src/ncview/game_window.cpp.i
 
 CMakeFiles/Draught.dir/src/ncview/game_window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draught.dir/src/ncview/game_window.cpp.s"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh6/S3655676/Draught/src/ncview/game_window.cpp -o CMakeFiles/Draught.dir/src/ncview/game_window.cpp.s
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/game_window.cpp -o CMakeFiles/Draught.dir/src/ncview/game_window.cpp.s
 
 CMakeFiles/Draught.dir/src/ncview/game_window.cpp.o.requires:
 .PHONY : CMakeFiles/Draught.dir/src/ncview/game_window.cpp.o.requires
@@ -192,17 +192,17 @@ CMakeFiles/Draught.dir/src/ncview/game_window.cpp.o.provides.build: CMakeFiles/D
 
 CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.o: CMakeFiles/Draught.dir/flags.make
 CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.o: src/ncview/main_menu.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh6/S3655676/Draught/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.o"
-	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.o -c /home/sh6/S3655676/Draught/src/ncview/main_menu.cpp
+	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.o -c /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/main_menu.cpp
 
 CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.i"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh6/S3655676/Draught/src/ncview/main_menu.cpp > CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.i
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/main_menu.cpp > CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.i
 
 CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.s"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh6/S3655676/Draught/src/ncview/main_menu.cpp -o CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.s
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/main_menu.cpp -o CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.s
 
 CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.o.requires:
 .PHONY : CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.o.requires
@@ -215,17 +215,17 @@ CMakeFiles/Draught.dir/src/ncview/main_menu.cpp.o.provides.build: CMakeFiles/Dra
 
 CMakeFiles/Draught.dir/src/ncview/menu.cpp.o: CMakeFiles/Draught.dir/flags.make
 CMakeFiles/Draught.dir/src/ncview/menu.cpp.o: src/ncview/menu.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh6/S3655676/Draught/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Draught.dir/src/ncview/menu.cpp.o"
-	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/menu.cpp.o -c /home/sh6/S3655676/Draught/src/ncview/menu.cpp
+	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/menu.cpp.o -c /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/menu.cpp
 
 CMakeFiles/Draught.dir/src/ncview/menu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draught.dir/src/ncview/menu.cpp.i"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh6/S3655676/Draught/src/ncview/menu.cpp > CMakeFiles/Draught.dir/src/ncview/menu.cpp.i
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/menu.cpp > CMakeFiles/Draught.dir/src/ncview/menu.cpp.i
 
 CMakeFiles/Draught.dir/src/ncview/menu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draught.dir/src/ncview/menu.cpp.s"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh6/S3655676/Draught/src/ncview/menu.cpp -o CMakeFiles/Draught.dir/src/ncview/menu.cpp.s
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/menu.cpp -o CMakeFiles/Draught.dir/src/ncview/menu.cpp.s
 
 CMakeFiles/Draught.dir/src/ncview/menu.cpp.o.requires:
 .PHONY : CMakeFiles/Draught.dir/src/ncview/menu.cpp.o.requires
@@ -238,17 +238,17 @@ CMakeFiles/Draught.dir/src/ncview/menu.cpp.o.provides.build: CMakeFiles/Draught.
 
 CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.o: CMakeFiles/Draught.dir/flags.make
 CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.o: src/ncview/player_selection_window.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh6/S3655676/Draught/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.o"
-	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.o -c /home/sh6/S3655676/Draught/src/ncview/player_selection_window.cpp
+	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.o -c /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/player_selection_window.cpp
 
 CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.i"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh6/S3655676/Draught/src/ncview/player_selection_window.cpp > CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.i
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/player_selection_window.cpp > CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.i
 
 CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.s"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh6/S3655676/Draught/src/ncview/player_selection_window.cpp -o CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.s
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/player_selection_window.cpp -o CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.s
 
 CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.o.requires:
 .PHONY : CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.o.requires
@@ -261,17 +261,17 @@ CMakeFiles/Draught.dir/src/ncview/player_selection_window.cpp.o.provides.build: 
 
 CMakeFiles/Draught.dir/src/ncview/ui.cpp.o: CMakeFiles/Draught.dir/flags.make
 CMakeFiles/Draught.dir/src/ncview/ui.cpp.o: src/ncview/ui.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh6/S3655676/Draught/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Draught.dir/src/ncview/ui.cpp.o"
-	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/ui.cpp.o -c /home/sh6/S3655676/Draught/src/ncview/ui.cpp
+	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/ui.cpp.o -c /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/ui.cpp
 
 CMakeFiles/Draught.dir/src/ncview/ui.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draught.dir/src/ncview/ui.cpp.i"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh6/S3655676/Draught/src/ncview/ui.cpp > CMakeFiles/Draught.dir/src/ncview/ui.cpp.i
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/ui.cpp > CMakeFiles/Draught.dir/src/ncview/ui.cpp.i
 
 CMakeFiles/Draught.dir/src/ncview/ui.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draught.dir/src/ncview/ui.cpp.s"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh6/S3655676/Draught/src/ncview/ui.cpp -o CMakeFiles/Draught.dir/src/ncview/ui.cpp.s
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/ui.cpp -o CMakeFiles/Draught.dir/src/ncview/ui.cpp.s
 
 CMakeFiles/Draught.dir/src/ncview/ui.cpp.o.requires:
 .PHONY : CMakeFiles/Draught.dir/src/ncview/ui.cpp.o.requires
@@ -284,17 +284,17 @@ CMakeFiles/Draught.dir/src/ncview/ui.cpp.o.provides.build: CMakeFiles/Draught.di
 
 CMakeFiles/Draught.dir/src/ncview/window.cpp.o: CMakeFiles/Draught.dir/flags.make
 CMakeFiles/Draught.dir/src/ncview/window.cpp.o: src/ncview/window.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh6/S3655676/Draught/CMakeFiles $(CMAKE_PROGRESS_11)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Draught.dir/src/ncview/window.cpp.o"
-	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/window.cpp.o -c /home/sh6/S3655676/Draught/src/ncview/window.cpp
+	/opt/rh/devtoolset-6/root/usr/bin/g++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Draught.dir/src/ncview/window.cpp.o -c /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/window.cpp
 
 CMakeFiles/Draught.dir/src/ncview/window.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draught.dir/src/ncview/window.cpp.i"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh6/S3655676/Draught/src/ncview/window.cpp > CMakeFiles/Draught.dir/src/ncview/window.cpp.i
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/window.cpp > CMakeFiles/Draught.dir/src/ncview/window.cpp.i
 
 CMakeFiles/Draught.dir/src/ncview/window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draught.dir/src/ncview/window.cpp.s"
-	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh6/S3655676/Draught/src/ncview/window.cpp -o CMakeFiles/Draught.dir/src/ncview/window.cpp.s
+	/opt/rh/devtoolset-6/root/usr/bin/g++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/src/ncview/window.cpp -o CMakeFiles/Draught.dir/src/ncview/window.cpp.s
 
 CMakeFiles/Draught.dir/src/ncview/window.cpp.o.requires:
 .PHONY : CMakeFiles/Draught.dir/src/ncview/window.cpp.o.requires
@@ -360,6 +360,6 @@ CMakeFiles/Draught.dir/clean:
 .PHONY : CMakeFiles/Draught.dir/clean
 
 CMakeFiles/Draught.dir/depend:
-	cd /home/sh6/S3655676/Draught && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sh6/S3655676/Draught /home/sh6/S3655676/Draught /home/sh6/S3655676/Draught /home/sh6/S3655676/Draught /home/sh6/S3655676/Draught/CMakeFiles/Draught.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles/Draught.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Draught.dir/depend
 

@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sh6/S3655676/Draught
+CMAKE_SOURCE_DIR = /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sh6/S3655676/Draught
+CMAKE_BINARY_DIR = /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sh6/S3655676/Draught/CMakeFiles /home/sh6/S3655676/Draught/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sh6/S3655676/Draught/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draught/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

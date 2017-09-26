@@ -1,12 +1,12 @@
 #include "game_window.h"
 #include "../model/model.h"
 
-draughts::ncview::game_window::game_window(const player_pair & theplayers) 
+draughts::ncview::game_window::game_window(const player_pair & theplayers)
     : players(theplayers), quit(false)
 {
 }
 
-void draughts::ncview::game_window::activate(void) 
+void draughts::ncview::game_window::activate(void)
 {
     while(!quit)
     {
@@ -14,9 +14,9 @@ void draughts::ncview::game_window::activate(void)
         try
         {
             display_board();
-            int playernum = themodel->get_current_player();
+            playernum = themodel->get_current_player();
             std::cout << "it is " << themodel->get_player_name(playernum)
-                << " and their score is " 
+                << " and their score is "
                 << themodel->get_player_score(playernum) << std::endl;
         }
         catch(std::exception & ex)
@@ -28,7 +28,7 @@ void draughts::ncview::game_window::activate(void)
         {
             std::pair<std::pair<int,int>,std::pair<int,int>> move_coords;
             move_coords = get_move_input();
-            themodel->make_move(playernum, move_coords.first.first, 
+            themodel->make_move(playernum, move_coords.first.first,
                 move_coords.first.second, move_coords.second.first,
                 move_coords.second.second);
         }
@@ -39,7 +39,7 @@ void draughts::ncview::game_window::activate(void)
     }
 }
 
-std::pair<std::pair<int,int>, std::pair<int,int>> 
+std::pair<std::pair<int,int>, std::pair<int,int>>
     draughts::ncview::game_window::get_move_input(void)
 {
     std::string input;
@@ -47,7 +47,7 @@ std::pair<std::pair<int,int>, std::pair<int,int>>
     std::pair<int,int> start;
     std::pair<int,int> end;
     std::cout << "Please enter your next move: " ;
-    get_input(input);
+    std::pair<int,int>> draughts::ncview::game_window::get_move_input(void);
     std::vector<std::string> moves;
     std::vector<std::string> coords;
     boost::split(moves, input, [](char ch){return ch == '-';});
@@ -115,4 +115,3 @@ void draughts::ncview::game_window::display_board(void)
         std::cout << std::endl;
     }
 }
-
