@@ -63,6 +63,8 @@ std::map<int, std::string> draughts::model::model::get_player_list(void)
     const
 {
     std::map<int, std::string> nameslist;
+	nameslist.insert(std::make_pair(1, "Bob"));
+	nameslist.insert(std::make_pair(2, "Kate"));
     return nameslist;
 }
 

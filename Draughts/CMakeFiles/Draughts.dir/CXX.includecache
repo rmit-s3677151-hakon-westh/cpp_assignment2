@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,19 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/main.cpp
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/main.cpp
 ncview/ui.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/ui.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/ui.h
 nc_controller/controller.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/controller.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/controller.h
 model/model.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/model/model.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/model.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/model/model.cpp
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/model.cpp
 model.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/model/model.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/model.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/model/model.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/model.h
 vector
 -
 memory
@@ -36,13 +36,13 @@ thread
 chrono
 -
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/command.cpp
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/command.cpp
 command.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/command.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/command.h
 ../ncview/ui.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/ui.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/ui.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/command.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/command.h
 cstdlib
 -
 memory
@@ -50,51 +50,51 @@ memory
 map
 -
 ../ncview/ui.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/ui.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/ui.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/controller.cpp
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/controller.cpp
 controller.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/controller.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/controller.h
 ../ncview/ui.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/ui.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/ui.h
 ../model/model.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/model/model.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/model.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/controller.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/controller.h
 memory
 -
 vector
 -
 command.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/command.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/command.h
 chrono
 -
 thread
 -
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/add_player_window.cpp
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/add_player_window.cpp
 add_player_window.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/add_player_window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/add_player_window.h
 ui.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/ui.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/ui.h
 ../model/model.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/model/model.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/model.h
 ../nc_controller/command.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/command.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/command.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/add_player_window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/add_player_window.h
 window.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/window.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/game_window.cpp
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/game_window.cpp
 game_window.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/game_window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/game_window.h
 ../model/model.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/model/model.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/model.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/game_window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/game_window.h
 window.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/window.h
 map
 -
 string
@@ -104,27 +104,27 @@ utility
 boost/algorithm/string.hpp
 -
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/main_menu.cpp
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/main_menu.cpp
 main_menu.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/main_menu.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/main_menu.h
 ../nc_controller/command.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/command.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/command.h
 ../nc_controller/controller.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/controller.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/controller.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/main_menu.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/main_menu.h
 menu.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/menu.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/menu.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/menu.cpp
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/menu.cpp
 menu.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/menu.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/menu.h
 ../nc_controller/command.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/command.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/command.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/menu.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/menu.h
 window.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/window.h
 vector
 -
 memory
@@ -134,15 +134,15 @@ string
 iostream
 -
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/player_selection_window.cpp
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/player_selection_window.cpp
 player_selection_window.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/player_selection_window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/player_selection_window.h
 ../nc_controller/controller.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/controller.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/controller.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/player_selection_window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/player_selection_window.h
 window.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/window.h
 map
 -
 string
@@ -154,37 +154,37 @@ vector
 sstream
 -
 menu.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/menu.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/menu.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/ui.cpp
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/ui.cpp
 ui.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/ui.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/ui.h
 ../nc_controller/controller.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/controller.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/controller.h
 ../model/model.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/model/model.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/model.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/ui.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/ui.h
 main_menu.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/main_menu.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/main_menu.h
 add_player_window.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/add_player_window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/add_player_window.h
 game_window.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/game_window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/game_window.h
 player_selection_window.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/player_selection_window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/player_selection_window.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/window.cpp
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/window.cpp
 window.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/window.h
 ui.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/ui.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/ui.h
 ../model/model.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/model/model.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/model.h
 ../nc_controller/command.h
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/nc_controller/command.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/command.h
 
-/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/src/ncview/window.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/window.h
 vector
 -
 memory
