@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.cpp
+player.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.h
+
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.h
+string
+-
+
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/tests/player_test.cpp
+iostream
+-
+string
+-
+../model/player.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.h
+

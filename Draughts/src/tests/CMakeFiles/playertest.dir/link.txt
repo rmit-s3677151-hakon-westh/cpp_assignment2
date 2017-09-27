@@ -1,0 +1,1 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++    -g -lboost_program_options   CMakeFiles/playertest.dir/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.cpp.o CMakeFiles/playertest.dir/player_test.cpp.o  -o playertest 

@@ -1,0 +1,3 @@
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/tests/CMakeFiles/rebuild_cache.dir
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/tests/CMakeFiles/edit_cache.dir
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/tests/CMakeFiles/Player_test.dir
