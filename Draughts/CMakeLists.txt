@@ -10,7 +10,10 @@
 cmake_minimum_required(VERSION 2.8)
 
 # Specify if the file is to be compiled on RMIT's servers
-set(USE_SERVER_COMPILER false)
+set(USE_SERVER_COMPILER true)
+
+# Remove CMakeCache.txt, so it can realiably be compiled across systems
+execute_process(COMMAND rm CMakeCache.txt)
 
 # Option for compiler so it can compile on our own systems
 if(USE_SERVER_COMPILER)
@@ -42,7 +45,7 @@ file(GLOB SOURCES
 set(CMAKE_BUILD_TYPE Debug)
 
 # Set flags
-set(CMAKE_CXX_COMPILE_FLAGS "-Wall -pedantic -std=c++14 -I.")
+set(CMAKE_CXX_COMPILE_FLAGS "-Wall -pedantic -std=c++14 -g")
 set(CMAKE_CXX_LINK_FLAGS    "-lboost_program_options")
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
 set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}")

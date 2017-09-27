@@ -1,3 +1,1 @@
-/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles/rebuild_cache.dir
-/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles/edit_cache.dir
-/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles/Draughts.dir
+/home/sh1/S3677151/courses/1254_CPP/assignment2/cpp_assignment2/Draughts/CMakeFiles/Draughts.dir
