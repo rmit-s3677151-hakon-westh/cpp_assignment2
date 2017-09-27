@@ -3,7 +3,7 @@
 std::unique_ptr<draughts::model::model> draughts::model::model::instance =
 nullptr;
 
-draughts::model::model::model(void) 
+draughts::model::model::model(void)
 {
 }
 
@@ -11,9 +11,9 @@ draughts::model::model * draughts::model::model::get_instance(void)
 {
     if(instance == nullptr)
     {
-        instance = std::unique_ptr<model>(new model);	
+        instance = std::unique_ptr<model>(new model);
     }
-    return instance.get();    
+    return instance.get();
 }
 
 int draughts::model::model::get_player_score(int playernum)
@@ -59,10 +59,13 @@ int draughts::model::model::get_current_player(void)
     return EOF;
 }
 
-std::map<int, std::string> draughts::model::model::get_player_list(void) 
+std::map<int, std::string> draughts::model::model::get_player_list(void)
     const
 {
     std::map<int, std::string> nameslist;
+
+    // for (auto get_player_vector::iterator = get_player_vector.begin() != )
+
     return nameslist;
 }
 
@@ -85,4 +88,3 @@ int draughts::model::model::get_height()
 draughts::model::model::~model(void)
 {
 }
-

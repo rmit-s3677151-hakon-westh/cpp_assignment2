@@ -19,6 +19,9 @@ namespace draughts
                 static std::unique_ptr<model> instance;
                 model(void);
                 bool player_exists(const std::string&);
+                player player1;
+                player player2;
+                vector<player> player_vector;
             public:
                 void start_game(int, int);
                 char get_token(int,int);
