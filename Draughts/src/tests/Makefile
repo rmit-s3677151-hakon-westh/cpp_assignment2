@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Piece_test
+
+# Build rule for target.
+Piece_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Piece_test
+.PHONY : Piece_test
+
+# fast build rule for target.
+Piece_test/fast:
+	$(MAKE) -f CMakeFiles/Piece_test.dir/build.make CMakeFiles/Piece_test.dir/build
+.PHONY : Piece_test/fast
+
+#=============================================================================
 # Target rules for targets named Player_test
 
 # Build rule for target.
@@ -122,6 +135,33 @@ Player_test: cmake_check_build_system
 Player_test/fast:
 	$(MAKE) -f CMakeFiles/Player_test.dir/build.make CMakeFiles/Player_test.dir/build
 .PHONY : Player_test/fast
+
+Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.o: Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp.o
+
+.PHONY : Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.o
+
+# target to build an object file
+Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp.o:
+	$(MAKE) -f CMakeFiles/Piece_test.dir/build.make CMakeFiles/Piece_test.dir/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp.o
+.PHONY : Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp.o
+
+Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.i: Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp.i
+
+.PHONY : Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.i
+
+# target to preprocess a source file
+Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp.i:
+	$(MAKE) -f CMakeFiles/Piece_test.dir/build.make CMakeFiles/Piece_test.dir/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp.i
+.PHONY : Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp.i
+
+Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.s: Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp.s
+
+.PHONY : Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.s
+
+# target to generate assembly for a file
+Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp.s:
+	$(MAKE) -f CMakeFiles/Piece_test.dir/build.make CMakeFiles/Piece_test.dir/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp.s
+.PHONY : Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp.s
 
 Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.o: Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.cpp.o
 
@@ -149,6 +189,33 @@ Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.s: Users/E
 Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.cpp.s:
 	$(MAKE) -f CMakeFiles/Player_test.dir/build.make CMakeFiles/Player_test.dir/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.cpp.s
 .PHONY : Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.cpp.s
+
+piece_test.o: piece_test.cpp.o
+
+.PHONY : piece_test.o
+
+# target to build an object file
+piece_test.cpp.o:
+	$(MAKE) -f CMakeFiles/Piece_test.dir/build.make CMakeFiles/Piece_test.dir/piece_test.cpp.o
+.PHONY : piece_test.cpp.o
+
+piece_test.i: piece_test.cpp.i
+
+.PHONY : piece_test.i
+
+# target to preprocess a source file
+piece_test.cpp.i:
+	$(MAKE) -f CMakeFiles/Piece_test.dir/build.make CMakeFiles/Piece_test.dir/piece_test.cpp.i
+.PHONY : piece_test.cpp.i
+
+piece_test.s: piece_test.cpp.s
+
+.PHONY : piece_test.s
+
+# target to generate assembly for a file
+piece_test.cpp.s:
+	$(MAKE) -f CMakeFiles/Piece_test.dir/build.make CMakeFiles/Piece_test.dir/piece_test.cpp.s
+.PHONY : piece_test.cpp.s
 
 player_test.o: player_test.cpp.o
 
@@ -185,10 +252,17 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... Piece_test"
 	@echo "... Player_test"
+	@echo "... Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.o"
+	@echo "... Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.i"
+	@echo "... Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.s"
 	@echo "... Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.o"
 	@echo "... Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.i"
 	@echo "... Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.s"
+	@echo "... piece_test.o"
+	@echo "... piece_test.i"
+	@echo "... piece_test.s"
 	@echo "... player_test.o"
 	@echo "... player_test.i"
 	@echo "... player_test.s"

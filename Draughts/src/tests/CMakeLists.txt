@@ -33,6 +33,13 @@ file(GLOB PLAYERSRCS
 	"player_test.cpp"
 )
 
+file(GLOB PIECESRCS
+	"../model/king.h"
+	"../model/piece.h"
+	"../model/piece.cpp"
+	"piece_test.cpp"
+)
+
 # Set to debug type
 set(CMAKE_BUILD_TYPE Debug)
 
@@ -48,5 +55,11 @@ add_executable(
 	${PLAYERSRCS}
 )
 
+add_executable(
+	Piece_test
+	${PIECESRCS}
+)
+
 # Link executable to external libraries
 target_link_libraries (Player_test)
+target_link_libraries (Piece_test)

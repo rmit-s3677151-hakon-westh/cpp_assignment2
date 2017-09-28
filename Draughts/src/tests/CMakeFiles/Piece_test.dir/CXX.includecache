@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/king.h
+cctype
+-
+
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp
+piece.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.h
+
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.h
+utility
+-
+
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/tests/piece_test.cpp
+iostream
+-
+string
+-
+vector
+-
+memory
+-
+../model/piece.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.h
+../model/king.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/king.h
+

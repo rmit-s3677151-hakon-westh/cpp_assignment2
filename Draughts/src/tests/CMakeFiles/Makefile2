@@ -60,13 +60,50 @@ CMAKE_SOURCE_DIR = /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/tes
 CMAKE_BINARY_DIR = /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/tests
 
 #=============================================================================
+# Target rules for target CMakeFiles/Piece_test.dir
+
+# All Build rule for target.
+CMakeFiles/Piece_test.dir/all:
+	$(MAKE) -f CMakeFiles/Piece_test.dir/build.make CMakeFiles/Piece_test.dir/depend
+	$(MAKE) -f CMakeFiles/Piece_test.dir/build.make CMakeFiles/Piece_test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/tests/CMakeFiles --progress-num=1,2,3 "Built target Piece_test"
+.PHONY : CMakeFiles/Piece_test.dir/all
+
+# Include target in all.
+all: CMakeFiles/Piece_test.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Piece_test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/tests/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Piece_test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/tests/CMakeFiles 0
+.PHONY : CMakeFiles/Piece_test.dir/rule
+
+# Convenience name for target.
+Piece_test: CMakeFiles/Piece_test.dir/rule
+
+.PHONY : Piece_test
+
+# clean rule for target.
+CMakeFiles/Piece_test.dir/clean:
+	$(MAKE) -f CMakeFiles/Piece_test.dir/build.make CMakeFiles/Piece_test.dir/clean
+.PHONY : CMakeFiles/Piece_test.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Piece_test.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/Player_test.dir
 
 # All Build rule for target.
 CMakeFiles/Player_test.dir/all:
 	$(MAKE) -f CMakeFiles/Player_test.dir/build.make CMakeFiles/Player_test.dir/depend
 	$(MAKE) -f CMakeFiles/Player_test.dir/build.make CMakeFiles/Player_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/tests/CMakeFiles --progress-num=1,2,3 "Built target Player_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/tests/CMakeFiles --progress-num=4,5,6 "Built target Player_test"
 .PHONY : CMakeFiles/Player_test.dir/all
 
 # Include target in all.

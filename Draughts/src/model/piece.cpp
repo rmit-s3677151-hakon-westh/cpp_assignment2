@@ -1,4 +1,4 @@
-#include "player.h"
+#include "piece.h"
 
 /*************************/
 /* con- and desctructors */
@@ -10,7 +10,7 @@ draughts::model::piece::piece(int input_ownerID, char input_token, std::pair<int
     positionXY(input_positionXY) {}
 
 draughts::model::piece::piece(int input_ownerID, char input_token):
-    piece(input_ownerID, input_token, std::makepair(0,0));
+    piece(input_ownerID, input_token, std::make_pair(0,0)) {}
 
 draughts::model::piece::~piece()
 {
@@ -25,43 +25,44 @@ int draughts::model::piece::get_ownerID()
     return ownerID;
 }
 
-char get_token()
+char draughts::model::piece::get_token()
 {
     return token;
 }
 
-std::par<int, int> get_positionXY();
-
-int get_positionX();
-int get_positionY();
-set_ownerID(int);
-set_token(char);
-set_positionXY(std::par<int, int>);
-set_positionX(int);
-set_positionY(int);
-virtual ~piece();
-
-int draughts::model::player::get_player_ID()
+std::pair<int, int> draughts::model::piece::get_positionXY()
 {
-    return ID;
+    return positionXY;
 }
 
-int draughts::model::player::get_player_score()
+int draughts::model::piece::get_positionX()
 {
-    return score;
+    return positionXY.first;
+}
+int draughts::model::piece::get_positionY()
+{
+    return positionXY.second;
 }
 
-std::string draughts::model::player::get_player_name()
+void draughts::model::piece::set_ownerID(int input_ownerID)
 {
-    return name;
+    ownerID = input_ownerID;
 }
 
-void draughts::model::player::set_player_score(int input_score)
+void draughts::model::piece::set_token(char input_token)
 {
-    score = input_score;
+    token = input_token;
 }
 
-void draughts::model::player::set_player_name(const std::string& input_name)
+void draughts::model::piece::set_positionXY(std::pair<int, int> input_positionXY)
 {
-    name = input_name;
+    positionXY = input_positionXY;
+}
+void draughts::model::piece::set_positionX(int input_x)
+{
+    set_positionXY(std::make_pair(input_x, positionXY.second));
+}
+void draughts::model::piece::set_positionY(int input_y)
+{
+    set_positionXY(std::make_pair(positionXY.first, input_y));
 }
