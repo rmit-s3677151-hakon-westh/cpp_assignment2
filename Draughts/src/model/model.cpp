@@ -32,6 +32,11 @@ int draughts::model::model::get_winner()
 
 std::string draughts::model::model::get_player_name(int id)
 {
+    for (auto p_it = player_vector.begin(); p_it != player_vector.end(); ++p_it)
+    {
+        if (id == (*p_it).get_player_ID())
+            return (*p_it).get_player_name();
+    }
     return "";
 }
 
@@ -40,10 +45,39 @@ char draughts::model::model::get_token(int x ,int y)
     return '\0';
 }
 
+bool draughts::model::model::validate_move(int playernum,
+    int startx, int starty, int endx, int endy)
+{
+    auto p_ptr = draughts::model::model::get_piece_from_position(startx, starty);
+    if ((*p_ptr).get_ownerID() != playernum)
+        return false;
+    /* TODO: insert rules here */
+    return true;
+}
+
+std::unique_ptr<draughts::model::piece> draughts::model::model::get_piece_from_position(int pos_x, int pos_y)
+{
+    std::unique_ptr<draughts::model::piece> p_ptr;
+    auto input_positionXY = std::make_pair(pos_x, pos_y);
+    for (auto p1_it = player1_pieces.begin(); p1_it != player1_pieces.end(); ++p1_it)
+    {
+        /* TODO should we do something about the pointer to pointer shit??? */
+        if (input_positionXY == (*p1_it).get_positionXY())
+            p_ptr = std::make_unique<draughts::model::piece>(*p1_it);
+    }
+    for (auto p2_it = player2_pieces.begin(); p2_it != player2_pieces.end(); ++p2_it)
+    {
+        if (input_positionXY == (*p2_it).get_positionXY())
+            p_ptr = std::make_unique<draughts::model::piece>(*p2_it);
+    }
+    return p_ptr;
+}
+
 void draughts::model::model::make_move(int playernum,
         int startx, int starty, int endx, int endy)
 {
-    
+    auto p_ptr = draughts::model::model::get_piece_from_position(startx, starty);
+    (*p_ptr).set_positionXY(make_pair(endx, endy));
 }
 
 void draughts::model::model::add_player(const std::string& p)
@@ -54,7 +88,7 @@ void draughts::model::model::add_player(const std::string& p)
 	}
 	else
 	{
-		std::cout << p <<"have already been added" << std::endl;
+		std::cout << p <<" have already been added" << std::endl;
 	}
 }
 
@@ -71,7 +105,10 @@ bool draughts::model::model::player_exists(const std::string& pname)
 
 int draughts::model::model::get_current_player(void)
 {
-    return EOF;
+    if (turn)
+        return (*player_1).get_player_ID();
+    else
+        return (*player_2).get_player_ID();
 }
 
 std::map<int, std::string> draughts::model::model::get_player_list(void)

@@ -16,11 +16,11 @@ namespace draughts
                 piece();
                 piece(int, char);
 				piece(int, char, std::pair<int, int>);
-                int get_ownerID();
-                char get_token();
-				std::pair<int, int> get_positionXY();
-                int get_positionX();
-                int get_positionY();
+                int get_ownerID() const;
+                char get_token() const;
+				std::pair<int, int> get_positionXY() const;
+                int get_positionX() const;
+                int get_positionY() const;
                 void set_ownerID(int);
                 void set_token(char);
 				void set_positionXY(std::pair<int, int>);

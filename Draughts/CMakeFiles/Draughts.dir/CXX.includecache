@@ -43,6 +43,8 @@ algorithm
 -
 player.h
 /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.h
+piece.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.h
 
 /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp
 piece.h

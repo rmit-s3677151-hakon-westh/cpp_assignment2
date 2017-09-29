@@ -23,26 +23,26 @@ draughts::model::piece::~piece()
 /* public methods */
 /******************/
 
-int draughts::model::piece::get_ownerID()
+int draughts::model::piece::get_ownerID() const
 {
     return ownerID;
 }
 
-char draughts::model::piece::get_token()
+char draughts::model::piece::get_token() const
 {
     return token;
 }
 
-std::pair<int, int> draughts::model::piece::get_positionXY()
+std::pair<int, int> draughts::model::piece::get_positionXY() const
 {
     return positionXY;
 }
 
-int draughts::model::piece::get_positionX()
+int draughts::model::piece::get_positionX() const
 {
     return positionXY.first;
 }
-int draughts::model::piece::get_positionY()
+int draughts::model::piece::get_positionY() const
 {
     return positionXY.second;
 }
