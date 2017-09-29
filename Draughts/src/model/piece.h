@@ -13,6 +13,7 @@ namespace draughts
                 char token;
                 std::pair<int, int> positionXY;
             public:
+                piece();
                 piece(int, char);
 				piece(int, char, std::pair<int, int>);
                 int get_ownerID();

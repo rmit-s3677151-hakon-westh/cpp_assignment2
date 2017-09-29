@@ -14,6 +14,7 @@ namespace draughts
 				int score;
 				std::string name;
 			public:
+				player();
 				player(const std::string&);
 				player(const std::string&, int);
 				int get_player_ID() const;

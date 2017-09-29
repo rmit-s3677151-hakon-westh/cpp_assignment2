@@ -12,6 +12,9 @@ draughts::model::piece::piece(int input_ownerID, char input_token, std::pair<int
 draughts::model::piece::piece(int input_ownerID, char input_token):
     piece(input_ownerID, input_token, std::make_pair(0,0)) {}
 
+draughts::model::piece::piece():
+    piece(-1, '\0') {}
+
 draughts::model::piece::~piece()
 {
 }

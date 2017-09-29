@@ -15,6 +15,9 @@ draughts::model::player::player(const std::string& input_string, int input_score
 draughts::model::player::player(const std::string& input_string):
     player(input_string, 0) {}
 
+draughts::model::player::player():
+    ID(-1) {}
+
 draughts::model::player::~player()
 {
 }

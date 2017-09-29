@@ -43,6 +43,7 @@ char draughts::model::model::get_token(int x ,int y)
 void draughts::model::model::make_move(int playernum,
         int startx, int starty, int endx, int endy)
 {
+    
 }
 
 void draughts::model::model::add_player(const std::string& p)

@@ -22,14 +22,15 @@ namespace draughts
                 static std::unique_ptr<model> instance;
                 model(void);
                 bool player_exists(const std::string&); /* DONE */
-                /*player player1;
-                player player2;*/
+                std::unique_ptr<player> player1;
+                std::unique_ptr<player> player2;
                 /* vector<unique_ptr<piece>> */
                 std::vector<player> player_vector;
             public:
                 void start_game(int, int); /* Søren */
                 char get_token(int,int); /* Søren */
-                bool validate_move(piece& moving_piece); /* Håkon */
+                //bool validate_move(piece& moving_piece); /* Håkon */
+                //piece get_piece_from_position(int, int);
                 void make_move(int, int, int, int, int); /* Håkon */
                 void add_player(const std::string&); /* DONE */
                 int get_player_score(int); /* Søren */
