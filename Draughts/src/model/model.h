@@ -11,6 +11,7 @@
 #include "player.h"
 #include "piece.h"
 
+
 #pragma once
 
 namespace draughts
@@ -23,22 +24,26 @@ namespace draughts
                 static std::unique_ptr<model> instance;
                 model(void);
                 bool player_exists(const std::string&); /* DONE */
-                std::unique_ptr<player> player1;
-                std::unique_ptr<player> player2;
-                std::vector<piece> player1_pieces;
-                std::vector<piece> player2_pieces;
+				bool player_exists(int);
+				std::unique_ptr<player> player1;
+				std::unique_ptr<player> player2;
+				std::vector<piece> player1_pieces;
+				std::vector<piece> player2_pieces;
                 std::vector<player> player_vector;
-                bool turn;
+				int width = 8;
+				int height = 8;
+				bool turn;
             public:
                 void start_game(int, int); /* Søren */
+				void create_tokens(int, int);
+				void initialise_board();
                 char get_token(int,int); /* Søren */
-                bool validate_move(int, int, int, int, int); /* Håkon */
-                std::unique_ptr<piece> get_piece_from_position(int, int); /* DONE */
-                void make_move(int, int, int, int, int); /* DONE */
+                //bool validate_move(piece& moving_piece); /* Håkon */
+                void make_move(int, int, int, int, int); /* Håkon */
                 void add_player(const std::string&); /* DONE */
                 int get_player_score(int); /* Søren */
-                int get_current_player(void); /* DONE */
-                std::string get_player_name(int); /* DONE */
+                int get_current_player(void); /* Håkon */
+                std::string get_player_name(int); /* Håkon */
                 std::map<int, std::string> get_player_list(void) const; /* DONE */
                 int get_winner(); /* Håkon */
                 int get_width(); /* Søren */
