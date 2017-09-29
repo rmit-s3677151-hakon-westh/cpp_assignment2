@@ -6,6 +6,9 @@
 #include <map>
 #include <thread>
 #include <chrono>
+#include <vector>
+#include <algorithm>
+#include "player.h"
 
 #pragma once
 
@@ -18,24 +21,26 @@ namespace draughts
             private:
                 static std::unique_ptr<model> instance;
                 model(void);
-                bool player_exists(const std::string&);
-                player player1;
-                player player2;
-                vector<player> player_vector;
+                bool player_exists(const std::string&); /* DONE */
+                /*player player1;
+                player player2;*/
+                /* vector<unique_ptr<piece>> */
+                std::vector<player> player_vector;
             public:
-                void start_game(int, int);
-                char get_token(int,int);
-                void make_move(int, int, int, int, int);
-                void add_player(const std::string& );
-                int get_player_score(int);
-                int get_current_player(void);
-                std::string get_player_name(int);
-                std::map<int, std::string> get_player_list(void) const;
-                int get_winner();
-                int get_width();
-                int get_height();
-                static model * get_instance(void);
-                static void delete_instance(void);
+                void start_game(int, int); /* Søren */
+                char get_token(int,int); /* Søren */
+                bool validate_move(piece& moving_piece); /* Håkon */
+                void make_move(int, int, int, int, int); /* Håkon */
+                void add_player(const std::string&); /* DONE */
+                int get_player_score(int); /* Søren */
+                int get_current_player(void); /* Håkon */
+                std::string get_player_name(int); /* Håkon */
+                std::map<int, std::string> get_player_list(void) const; /* DONE */
+                int get_winner(); /* Håkon */
+                int get_width(); /* Søren */
+                int get_height(); /* Søren */
+                static model * get_instance(void); /* DONE */
+                static void delete_instance(void); /* DONE */
                 virtual ~model(void);
         };
     }

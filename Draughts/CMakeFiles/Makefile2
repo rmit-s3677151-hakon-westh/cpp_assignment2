@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts
 CMakeFiles/Draughts.dir/all:
 	$(MAKE) -f CMakeFiles/Draughts.dir/build.make CMakeFiles/Draughts.dir/depend
 	$(MAKE) -f CMakeFiles/Draughts.dir/build.make CMakeFiles/Draughts.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target Draughts"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 "Built target Draughts"
 .PHONY : CMakeFiles/Draughts.dir/all
 
 # Include target in all.
@@ -76,7 +76,7 @@ all: CMakeFiles/Draughts.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Draughts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles 15
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Draughts.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles 0
 .PHONY : CMakeFiles/Draughts.dir/rule

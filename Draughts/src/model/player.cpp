@@ -23,17 +23,17 @@ draughts::model::player::~player()
 /* public methods */
 /******************/
 
-int draughts::model::player::get_player_ID()
+int draughts::model::player::get_player_ID() const
 {
     return ID;
 }
 
-int draughts::model::player::get_player_score()
+int draughts::model::player::get_player_score() const
 {
     return score;
 }
 
-std::string draughts::model::player::get_player_name()
+std::string draughts::model::player::get_player_name() const
 {
     return name;
 }

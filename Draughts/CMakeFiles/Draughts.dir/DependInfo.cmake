@@ -5,7 +5,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/main.cpp" "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles/Draughts.dir/src/main.cpp.o"
+  "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/king.cpp" "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles/Draughts.dir/src/model/king.cpp.o"
   "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/model.cpp" "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles/Draughts.dir/src/model/model.cpp.o"
+  "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp" "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles/Draughts.dir/src/model/piece.cpp.o"
+  "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.cpp" "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles/Draughts.dir/src/model/player.cpp.o"
   "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/command.cpp" "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles/Draughts.dir/src/nc_controller/command.cpp.o"
   "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/controller.cpp" "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o"
   "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/add_player_window.cpp" "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o"

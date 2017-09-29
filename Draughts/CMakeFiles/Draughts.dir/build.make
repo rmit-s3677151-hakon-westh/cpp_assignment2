@@ -81,9 +81,33 @@ CMakeFiles/Draughts.dir/src/main.cpp.o.provides: CMakeFiles/Draughts.dir/src/mai
 CMakeFiles/Draughts.dir/src/main.cpp.o.provides.build: CMakeFiles/Draughts.dir/src/main.cpp.o
 
 
+CMakeFiles/Draughts.dir/src/model/king.cpp.o: CMakeFiles/Draughts.dir/flags.make
+CMakeFiles/Draughts.dir/src/model/king.cpp.o: src/model/king.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Draughts.dir/src/model/king.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Draughts.dir/src/model/king.cpp.o -c /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/king.cpp
+
+CMakeFiles/Draughts.dir/src/model/king.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draughts.dir/src/model/king.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/king.cpp > CMakeFiles/Draughts.dir/src/model/king.cpp.i
+
+CMakeFiles/Draughts.dir/src/model/king.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draughts.dir/src/model/king.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/king.cpp -o CMakeFiles/Draughts.dir/src/model/king.cpp.s
+
+CMakeFiles/Draughts.dir/src/model/king.cpp.o.requires:
+
+.PHONY : CMakeFiles/Draughts.dir/src/model/king.cpp.o.requires
+
+CMakeFiles/Draughts.dir/src/model/king.cpp.o.provides: CMakeFiles/Draughts.dir/src/model/king.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Draughts.dir/build.make CMakeFiles/Draughts.dir/src/model/king.cpp.o.provides.build
+.PHONY : CMakeFiles/Draughts.dir/src/model/king.cpp.o.provides
+
+CMakeFiles/Draughts.dir/src/model/king.cpp.o.provides.build: CMakeFiles/Draughts.dir/src/model/king.cpp.o
+
+
 CMakeFiles/Draughts.dir/src/model/model.cpp.o: CMakeFiles/Draughts.dir/flags.make
 CMakeFiles/Draughts.dir/src/model/model.cpp.o: src/model/model.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Draughts.dir/src/model/model.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Draughts.dir/src/model/model.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Draughts.dir/src/model/model.cpp.o -c /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/model.cpp
 
 CMakeFiles/Draughts.dir/src/model/model.cpp.i: cmake_force
@@ -105,9 +129,57 @@ CMakeFiles/Draughts.dir/src/model/model.cpp.o.provides: CMakeFiles/Draughts.dir/
 CMakeFiles/Draughts.dir/src/model/model.cpp.o.provides.build: CMakeFiles/Draughts.dir/src/model/model.cpp.o
 
 
+CMakeFiles/Draughts.dir/src/model/piece.cpp.o: CMakeFiles/Draughts.dir/flags.make
+CMakeFiles/Draughts.dir/src/model/piece.cpp.o: src/model/piece.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Draughts.dir/src/model/piece.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Draughts.dir/src/model/piece.cpp.o -c /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp
+
+CMakeFiles/Draughts.dir/src/model/piece.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draughts.dir/src/model/piece.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp > CMakeFiles/Draughts.dir/src/model/piece.cpp.i
+
+CMakeFiles/Draughts.dir/src/model/piece.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draughts.dir/src/model/piece.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.cpp -o CMakeFiles/Draughts.dir/src/model/piece.cpp.s
+
+CMakeFiles/Draughts.dir/src/model/piece.cpp.o.requires:
+
+.PHONY : CMakeFiles/Draughts.dir/src/model/piece.cpp.o.requires
+
+CMakeFiles/Draughts.dir/src/model/piece.cpp.o.provides: CMakeFiles/Draughts.dir/src/model/piece.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Draughts.dir/build.make CMakeFiles/Draughts.dir/src/model/piece.cpp.o.provides.build
+.PHONY : CMakeFiles/Draughts.dir/src/model/piece.cpp.o.provides
+
+CMakeFiles/Draughts.dir/src/model/piece.cpp.o.provides.build: CMakeFiles/Draughts.dir/src/model/piece.cpp.o
+
+
+CMakeFiles/Draughts.dir/src/model/player.cpp.o: CMakeFiles/Draughts.dir/flags.make
+CMakeFiles/Draughts.dir/src/model/player.cpp.o: src/model/player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Draughts.dir/src/model/player.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Draughts.dir/src/model/player.cpp.o -c /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.cpp
+
+CMakeFiles/Draughts.dir/src/model/player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Draughts.dir/src/model/player.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.cpp > CMakeFiles/Draughts.dir/src/model/player.cpp.i
+
+CMakeFiles/Draughts.dir/src/model/player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Draughts.dir/src/model/player.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.cpp -o CMakeFiles/Draughts.dir/src/model/player.cpp.s
+
+CMakeFiles/Draughts.dir/src/model/player.cpp.o.requires:
+
+.PHONY : CMakeFiles/Draughts.dir/src/model/player.cpp.o.requires
+
+CMakeFiles/Draughts.dir/src/model/player.cpp.o.provides: CMakeFiles/Draughts.dir/src/model/player.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Draughts.dir/build.make CMakeFiles/Draughts.dir/src/model/player.cpp.o.provides.build
+.PHONY : CMakeFiles/Draughts.dir/src/model/player.cpp.o.provides
+
+CMakeFiles/Draughts.dir/src/model/player.cpp.o.provides.build: CMakeFiles/Draughts.dir/src/model/player.cpp.o
+
+
 CMakeFiles/Draughts.dir/src/nc_controller/command.cpp.o: CMakeFiles/Draughts.dir/flags.make
 CMakeFiles/Draughts.dir/src/nc_controller/command.cpp.o: src/nc_controller/command.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Draughts.dir/src/nc_controller/command.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Draughts.dir/src/nc_controller/command.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Draughts.dir/src/nc_controller/command.cpp.o -c /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/command.cpp
 
 CMakeFiles/Draughts.dir/src/nc_controller/command.cpp.i: cmake_force
@@ -131,7 +203,7 @@ CMakeFiles/Draughts.dir/src/nc_controller/command.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o: CMakeFiles/Draughts.dir/flags.make
 CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o: src/nc_controller/controller.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o -c /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/nc_controller/controller.cpp
 
 CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.i: cmake_force
@@ -155,7 +227,7 @@ CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o.provides.build: CMake
 
 CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o: CMakeFiles/Draughts.dir/flags.make
 CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o: src/ncview/add_player_window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o -c /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/add_player_window.cpp
 
 CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.i: cmake_force
@@ -179,7 +251,7 @@ CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o.provides.build: CMake
 
 CMakeFiles/Draughts.dir/src/ncview/game_window.cpp.o: CMakeFiles/Draughts.dir/flags.make
 CMakeFiles/Draughts.dir/src/ncview/game_window.cpp.o: src/ncview/game_window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/game_window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/game_window.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Draughts.dir/src/ncview/game_window.cpp.o -c /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/game_window.cpp
 
 CMakeFiles/Draughts.dir/src/ncview/game_window.cpp.i: cmake_force
@@ -203,7 +275,7 @@ CMakeFiles/Draughts.dir/src/ncview/game_window.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/Draughts.dir/src/ncview/main_menu.cpp.o: CMakeFiles/Draughts.dir/flags.make
 CMakeFiles/Draughts.dir/src/ncview/main_menu.cpp.o: src/ncview/main_menu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/main_menu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/main_menu.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Draughts.dir/src/ncview/main_menu.cpp.o -c /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/main_menu.cpp
 
 CMakeFiles/Draughts.dir/src/ncview/main_menu.cpp.i: cmake_force
@@ -227,7 +299,7 @@ CMakeFiles/Draughts.dir/src/ncview/main_menu.cpp.o.provides.build: CMakeFiles/Dr
 
 CMakeFiles/Draughts.dir/src/ncview/menu.cpp.o: CMakeFiles/Draughts.dir/flags.make
 CMakeFiles/Draughts.dir/src/ncview/menu.cpp.o: src/ncview/menu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/menu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/menu.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Draughts.dir/src/ncview/menu.cpp.o -c /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/menu.cpp
 
 CMakeFiles/Draughts.dir/src/ncview/menu.cpp.i: cmake_force
@@ -251,7 +323,7 @@ CMakeFiles/Draughts.dir/src/ncview/menu.cpp.o.provides.build: CMakeFiles/Draught
 
 CMakeFiles/Draughts.dir/src/ncview/player_selection_window.cpp.o: CMakeFiles/Draughts.dir/flags.make
 CMakeFiles/Draughts.dir/src/ncview/player_selection_window.cpp.o: src/ncview/player_selection_window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/player_selection_window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/player_selection_window.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Draughts.dir/src/ncview/player_selection_window.cpp.o -c /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/player_selection_window.cpp
 
 CMakeFiles/Draughts.dir/src/ncview/player_selection_window.cpp.i: cmake_force
@@ -275,7 +347,7 @@ CMakeFiles/Draughts.dir/src/ncview/player_selection_window.cpp.o.provides.build:
 
 CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o: CMakeFiles/Draughts.dir/flags.make
 CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o: src/ncview/ui.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o -c /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/ui.cpp
 
 CMakeFiles/Draughts.dir/src/ncview/ui.cpp.i: cmake_force
@@ -299,7 +371,7 @@ CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o.provides.build: CMakeFiles/Draughts.
 
 CMakeFiles/Draughts.dir/src/ncview/window.cpp.o: CMakeFiles/Draughts.dir/flags.make
 CMakeFiles/Draughts.dir/src/ncview/window.cpp.o: src/ncview/window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Draughts.dir/src/ncview/window.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Draughts.dir/src/ncview/window.cpp.o -c /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/ncview/window.cpp
 
 CMakeFiles/Draughts.dir/src/ncview/window.cpp.i: cmake_force
@@ -324,7 +396,10 @@ CMakeFiles/Draughts.dir/src/ncview/window.cpp.o.provides.build: CMakeFiles/Draug
 # Object files for target Draughts
 Draughts_OBJECTS = \
 "CMakeFiles/Draughts.dir/src/main.cpp.o" \
+"CMakeFiles/Draughts.dir/src/model/king.cpp.o" \
 "CMakeFiles/Draughts.dir/src/model/model.cpp.o" \
+"CMakeFiles/Draughts.dir/src/model/piece.cpp.o" \
+"CMakeFiles/Draughts.dir/src/model/player.cpp.o" \
 "CMakeFiles/Draughts.dir/src/nc_controller/command.cpp.o" \
 "CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o" \
 "CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o" \
@@ -339,7 +414,10 @@ Draughts_OBJECTS = \
 Draughts_EXTERNAL_OBJECTS =
 
 Draughts: CMakeFiles/Draughts.dir/src/main.cpp.o
+Draughts: CMakeFiles/Draughts.dir/src/model/king.cpp.o
 Draughts: CMakeFiles/Draughts.dir/src/model/model.cpp.o
+Draughts: CMakeFiles/Draughts.dir/src/model/piece.cpp.o
+Draughts: CMakeFiles/Draughts.dir/src/model/player.cpp.o
 Draughts: CMakeFiles/Draughts.dir/src/nc_controller/command.cpp.o
 Draughts: CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o
 Draughts: CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o
@@ -351,7 +429,7 @@ Draughts: CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o
 Draughts: CMakeFiles/Draughts.dir/src/ncview/window.cpp.o
 Draughts: CMakeFiles/Draughts.dir/build.make
 Draughts: CMakeFiles/Draughts.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable Draughts"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable Draughts"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Draughts.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -360,7 +438,10 @@ CMakeFiles/Draughts.dir/build: Draughts
 .PHONY : CMakeFiles/Draughts.dir/build
 
 CMakeFiles/Draughts.dir/requires: CMakeFiles/Draughts.dir/src/main.cpp.o.requires
+CMakeFiles/Draughts.dir/requires: CMakeFiles/Draughts.dir/src/model/king.cpp.o.requires
 CMakeFiles/Draughts.dir/requires: CMakeFiles/Draughts.dir/src/model/model.cpp.o.requires
+CMakeFiles/Draughts.dir/requires: CMakeFiles/Draughts.dir/src/model/piece.cpp.o.requires
+CMakeFiles/Draughts.dir/requires: CMakeFiles/Draughts.dir/src/model/player.cpp.o.requires
 CMakeFiles/Draughts.dir/requires: CMakeFiles/Draughts.dir/src/nc_controller/command.cpp.o.requires
 CMakeFiles/Draughts.dir/requires: CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o.requires
 CMakeFiles/Draughts.dir/requires: CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o.requires

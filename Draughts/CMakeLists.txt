@@ -10,7 +10,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 # Specify if the file is to be compiled on RMIT's servers
-set(USE_SERVER_COMPILER true)
+set(USE_SERVER_COMPILER false)
 
 # Remove CMakeCache.txt, so it can realiably be compiled across systems
 execute_process(COMMAND rm CMakeCache.txt)

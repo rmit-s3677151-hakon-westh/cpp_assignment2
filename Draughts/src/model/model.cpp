@@ -47,11 +47,25 @@ void draughts::model::model::make_move(int playernum,
 
 void draughts::model::model::add_player(const std::string& p)
 {
+	if(!draughts::model::model::player_exists(p))
+	{
+		player_vector.push_back(p);;
+	}
+	else
+	{
+		std::cout << p <<"have already been added" << std::endl;
+	}
 }
 
 bool draughts::model::model::player_exists(const std::string& pname)
 {
-    return false;
+    bool player_exists = false;
+    for (auto it = player_vector.begin(); it != player_vector.end(); ++it)
+    {
+        if ((*it).get_player_name() == pname)
+            player_exists = true;
+    }
+	return player_exists;
 }
 
 int draughts::model::model::get_current_player(void)
@@ -64,7 +78,8 @@ std::map<int, std::string> draughts::model::model::get_player_list(void)
 {
     std::map<int, std::string> nameslist;
 
-    // for (auto get_player_vector::iterator = get_player_vector.begin() != )
+    for (auto it = player_vector.begin(); it != player_vector.end(); ++it)
+		nameslist.insert(std::make_pair((*it).get_player_ID(),(*it).get_player_name()));
 
     return nameslist;
 }
