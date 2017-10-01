@@ -36,6 +36,10 @@ void draughts::model::model::start_game(int plr1, int plr2)
 	return;
 	}
 
+    // Set pointers to players
+    player1 = std::make_unique<draughts::model::player>(player_vector.at(plr1));
+    player1 = std::make_unique<draughts::model::player>(player_vector.at(plr2));
+
 	// Create tokens
 	draughts::model::model::create_tokens(1,plr1);
 	draughts::model::model::create_tokens(2,plr2);
