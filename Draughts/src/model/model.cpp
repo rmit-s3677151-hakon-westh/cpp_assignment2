@@ -160,7 +160,7 @@ void draughts::model::model::make_move(int playernum,
         int startx, int starty, int endx, int endy)
 {
     auto p_ptr = draughts::model::model::get_piece_from_position(startx, starty);
-    (*p_ptr).set_positionXY(make_pair(endx, endy));
+    (*p_ptr).set_positionXY(std::make_pair(endx, endy));
 }
 
 void draughts::model::model::add_player(const std::string& p)
@@ -200,9 +200,9 @@ bool draughts::model::model::player_exists(int pID)
 int draughts::model::model::get_current_player(void)
 {
     if (turn)
-        return (*player_1).get_player_ID();
+        return (*player1).get_player_ID();
     else
-        return (*player_2).get_player_ID();
+        return (*player2).get_player_ID();
 }
 
 std::map<int, std::string> draughts::model::model::get_player_list(void)

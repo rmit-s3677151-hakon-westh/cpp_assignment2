@@ -23,6 +23,7 @@ namespace draughts
                 static std::unique_ptr<model> instance;
                 model(void);
                 bool player_exists(const std::string&); /* DONE */
+                bool player_exists(int); /* DONE */
                 std::unique_ptr<player> player1;
                 std::unique_ptr<player> player2;
                 std::vector<piece> player1_pieces;
