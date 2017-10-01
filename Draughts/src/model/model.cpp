@@ -23,7 +23,7 @@ int draughts::model::model::get_player_score(int playernum)
 
 void draughts::model::model::start_game(int plr1, int plr2)
 {
-	// Validate players are in roster
+    // Validate players are in roster
 	if(!draughts::model::model::player_exists(plr1) ||
 		!draughts::model::model::player_exists(plr2))
 	{
@@ -35,14 +35,14 @@ void draughts::model::model::start_game(int plr1, int plr2)
 		}
 	return;
 	}
-	
+
 	// Create tokens
 	draughts::model::model::create_tokens(1,plr1);
 	draughts::model::model::create_tokens(2,plr2);
 
 	// Initialise board by placing tokens on board
 	draughts::model::model::initialise_board();
-	
+
 	// Initialise that player 1 will start game
 	turn = true; // TRUE player 1 and FALSE player 2
 }
@@ -58,7 +58,7 @@ void draughts::model::model::create_tokens(int player_in_game, int plrID)
 	else{
 		token = 'o';
 	}
-	
+
 	// Create pieces
 	for (int piece = 0; piece < 12; ++piece){
 		if(player_in_game == 1){
@@ -71,7 +71,7 @@ void draughts::model::model::create_tokens(int player_in_game, int plrID)
 }
 
 void draughts::model::model::initialise_board(){
-	
+
 	// Player 1
 		// Row 1
 		player1_pieces[0].set_positionXY(std::make_pair(1,2));
@@ -88,7 +88,7 @@ void draughts::model::model::initialise_board(){
 		player1_pieces[9].set_positionXY(std::make_pair(3,4));
 		player1_pieces[10].set_positionXY(std::make_pair(3,6));
 		player1_pieces[11].set_positionXY(std::make_pair(3,8));
-		
+
 	// Player 2
 		// Row 6
 		player2_pieces[0].set_positionXY(std::make_pair(6,1));
@@ -107,6 +107,7 @@ void draughts::model::model::initialise_board(){
 		player2_pieces[11].set_positionXY(std::make_pair(8,7));
 }
 
+
 int draughts::model::model::get_winner()
 {
     return EOF;
@@ -114,6 +115,11 @@ int draughts::model::model::get_winner()
 
 std::string draughts::model::model::get_player_name(int id)
 {
+    for (auto p_it = player_vector.begin(); p_it != player_vector.end(); ++p_it)
+    {
+        if (id == (*p_it).get_player_ID())
+            return (*p_it).get_player_name();
+    }
     return "";
 }
 
@@ -122,9 +128,39 @@ char draughts::model::model::get_token(int x ,int y)
     return '\0';
 }
 
+bool draughts::model::model::validate_move(int playernum,
+    int startx, int starty, int endx, int endy)
+{
+    auto p_ptr = draughts::model::model::get_piece_from_position(startx, starty);
+    if ((*p_ptr).get_ownerID() != playernum)
+        return false;
+    /* TODO: insert rules here */
+    return true;
+}
+
+std::unique_ptr<draughts::model::piece> draughts::model::model::get_piece_from_position(int pos_x, int pos_y)
+{
+    std::unique_ptr<draughts::model::piece> p_ptr;
+    auto input_positionXY = std::make_pair(pos_x, pos_y);
+    for (auto p1_it = player1_pieces.begin(); p1_it != player1_pieces.end(); ++p1_it)
+    {
+        /* TODO should we do something about the pointer to pointer shit??? */
+        if (input_positionXY == (*p1_it).get_positionXY())
+            p_ptr = std::make_unique<draughts::model::piece>(*p1_it);
+    }
+    for (auto p2_it = player2_pieces.begin(); p2_it != player2_pieces.end(); ++p2_it)
+    {
+        if (input_positionXY == (*p2_it).get_positionXY())
+            p_ptr = std::make_unique<draughts::model::piece>(*p2_it);
+    }
+    return p_ptr;
+}
+
 void draughts::model::model::make_move(int playernum,
         int startx, int starty, int endx, int endy)
 {
+    auto p_ptr = draughts::model::model::get_piece_from_position(startx, starty);
+    (*p_ptr).set_positionXY(make_pair(endx, endy));
 }
 
 void draughts::model::model::add_player(const std::string& p)
@@ -163,7 +199,10 @@ bool draughts::model::model::player_exists(int pID)
 
 int draughts::model::model::get_current_player(void)
 {
-    return EOF;
+    if (turn)
+        return (*player_1).get_player_ID();
+    else
+        return (*player_2).get_player_ID();
 }
 
 std::map<int, std::string> draughts::model::model::get_player_list(void)
