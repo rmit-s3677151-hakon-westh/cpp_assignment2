@@ -19,7 +19,7 @@ draughts::model::model * draughts::model::model::get_instance(void)
 int draughts::model::model::get_player_score(int playerID)
 {
     std::map<int, std::string> player_list = draughts::model::model::get_player_list();
-	
+
 	return player_list.find(playerID)->first;
 }
 
@@ -131,7 +131,8 @@ std::string draughts::model::model::get_player_name(int id)
 
 char draughts::model::model::get_token(int x ,int y)
 {
-    return '\0';
+    auto p_ptr = draughts::model::model::get_piece_from_position(x, y);
+    return (*p_ptr).get_token();
 }
 
 bool draughts::model::model::validate_move(int playernum,
@@ -150,7 +151,6 @@ std::unique_ptr<draughts::model::piece> draughts::model::model::get_piece_from_p
     auto input_positionXY = std::make_pair(pos_x, pos_y);
     for (auto p1_it = player1_pieces.begin(); p1_it != player1_pieces.end(); ++p1_it)
     {
-        /* TODO should we do something about the pointer to pointer shit??? */
         if (input_positionXY == (*p1_it).get_positionXY())
             p_ptr = std::make_unique<draughts::model::piece>(*p1_it);
     }
