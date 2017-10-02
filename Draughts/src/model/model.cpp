@@ -132,7 +132,9 @@ std::string draughts::model::model::get_player_name(int id)
 char draughts::model::model::get_token(int x ,int y)
 {
     auto p_ptr = draughts::model::model::get_piece_from_position(x, y);
-    return (*p_ptr).get_token();
+    if (p_ptr != nullptr)
+        return (*p_ptr).get_token();
+    return '\0';
 }
 
 bool draughts::model::model::validate_move(int playernum,
@@ -147,7 +149,7 @@ bool draughts::model::model::validate_move(int playernum,
 
 std::unique_ptr<draughts::model::piece> draughts::model::model::get_piece_from_position(int pos_x, int pos_y)
 {
-    std::unique_ptr<draughts::model::piece> p_ptr;
+    std::unique_ptr<draughts::model::piece> p_ptr = nullptr;
     auto input_positionXY = std::make_pair(pos_x, pos_y);
     for (auto p1_it = player1_pieces.begin(); p1_it != player1_pieces.end(); ++p1_it)
     {
