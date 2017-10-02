@@ -144,8 +144,8 @@ bool draughts::model::model::validate_move(int playernum,
     auto p_ptr = draughts::model::model::get_piece_from_position(start_row, start_col);
     if (p_ptr != nullptr && (*p_ptr)->get_ownerID() != playernum)
         return false;
-    /* TODO: insert rules here
-
+    /* TODO: insert rules here 
+	
 	// piece kan kunne rykke skråt fremad
 	// piece1 conquer piece2 ved at hoppe skråtover
 		// hvis 1piece kan conquer en anden piece3 efterfølgende så må han det
@@ -155,7 +155,7 @@ bool draughts::model::model::validate_move(int playernum,
 	// kongen kan rykke skråtfremad og skråttilbage
 	*/
     return true;
-
+	
 	//Choose valid (dir)ection for player depending on player 1 or 2
 	int dir;
 	if(player1->get_player_ID() == playernum){ 	// player 1
@@ -164,9 +164,9 @@ bool draughts::model::model::validate_move(int playernum,
 	else{ 										// player 2
 		dir = -1;
 	}
-
-
-
+	
+	
+	
 	//*player id 1 så ned
 	std::pair<int, int> end (end_row,end_col);
 	std::pair<int, int> kernel_0 (start_row,start_col);
@@ -175,7 +175,7 @@ bool draughts::model::model::validate_move(int playernum,
 	std::pair<int, int> kernel_2 (start_row+1*dir,start_col+1);
 	std::pair<int, int> kernel_3 (start_row+2*dir,start_col-2);
 	std::pair<int, int> kernel_4 (start_row+2*dir,start_col+2);
-
+	
 	// Does move exceed board limits?
 	if(end.first < 1 || end.first > HEIGHT || end.second < 1 || end.second > WIDTH){
 		std::cout << "Move exceeded board limits" << std::endl;
@@ -186,12 +186,13 @@ bool draughts::model::model::validate_move(int playernum,
 		if(get_piece_from_position(end.first,end.second)==nullptr)
 			std::cout << "Invalid move" << std::endl;
 		else{
-
+			
 		}
 	}
 	else{
 		std::cout << "Invalid move" << std::endl;
 	}
+	
 }
 
 std::unique_ptr<draughts::model::piece*> draughts::model::model::get_piece_from_position(int pos_x, int pos_y)
@@ -235,7 +236,7 @@ void draughts::model::model::add_player(const std::string& p)
         << std::endl;
 	}
 	else{
-		std::cout << p <<" have already been added to the player roster."
+		std::cout << p <<" have already been added to the player roster." 
 		<< std::endl;
 	}
 }

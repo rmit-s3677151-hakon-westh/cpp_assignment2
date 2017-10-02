@@ -10,6 +10,7 @@
 #include <algorithm>
 #include "player.h"
 #include "piece.h"
+#include "../direction.h"
 
 #pragma once
 
