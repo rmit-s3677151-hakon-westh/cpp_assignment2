@@ -179,18 +179,45 @@ bool draughts::model::model::validate_move(int playernum,
 	// Does move exceed board limits?
 	if(end.first < 1 || end.first > HEIGHT || end.second < 1 || end.second > WIDTH){
 		std::cout << "Move exceeded board limits" << std::endl;
+		return false;
 	}
 	// Is move on a kernel?
-	else if(end==kernel_1 || end==kernel_2 || end==kernel_3 || end==kernel_4){
+	else if(end==kernel_1 || end==kernel_2){
 		// Is there already a piece on end move
-		if(get_piece_from_position(end.first,end.second)==nullptr)
-			std::cout << "Invalid move" << std::endl;
+		if(get_piece_from_position(end.first,end.second)==nullptr){
+			return true;
+		}
 		else{
+			std::cout << "Invalid move" << std::endl;
+			return false;
+		}
+	}
+	else if(end==kernel_3){
+		
+		if(get_piece_from_position(kernel_1.first,kernel_1.second)!=nullptr &&
+		(*get_piece_from_position(kernel_1.first,kernel_1.second))->get_ownerID()!= playernum){
+			return true;
+		}
+		else{
+			std::cout << "Invalid move" << std::endl;
+			return false;
+		}
 			
+	}
+	else if(end==kernel_4){
+		
+		if(get_piece_from_position(kernel_2.first,kernel_2.second)!=nullptr &&
+		(*get_piece_from_position(kernel_2.first,kernel_2.second))->get_ownerID()!= playernum){
+			return true;
+		}
+		else{
+			std::cout << "Invalid move" << std::endl;
+			return false;
 		}
 	}
 	else{
 		std::cout << "Invalid move" << std::endl;
+		return false;
 	}
 	
 }
