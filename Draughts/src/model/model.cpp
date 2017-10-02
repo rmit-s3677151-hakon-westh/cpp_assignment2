@@ -81,19 +81,14 @@ void draughts::model::model::initialise_board(){
 	// Player 1
 		// Row 1
 		player1_pieces[0]->set_positionXY(std::make_pair(1,2));
-
-        auto p0 = draughts::model::model::get_piece_from_position(1,2);
-        std::cout << "typie: " << typeid(p0).name() << std::endl;
-        (*p0)->set_positionXY(std::make_pair(5,5));
-
 		player1_pieces[1]->set_positionXY(std::make_pair(1,4));
 		player1_pieces[2]->set_positionXY(std::make_pair(1,6));
 		player1_pieces[3]->set_positionXY(std::make_pair(1,8));
 		// Row 2
 		player1_pieces[4]->set_positionXY(std::make_pair(2,1));
-		player1_pieces[5]->set_positionXY(std::make_pair(1,3));
-		player1_pieces[6]->set_positionXY(std::make_pair(1,5));
-		player1_pieces[7]->set_positionXY(std::make_pair(1,7));
+		player1_pieces[5]->set_positionXY(std::make_pair(2,3));
+		player1_pieces[6]->set_positionXY(std::make_pair(2,5));
+		player1_pieces[7]->set_positionXY(std::make_pair(2,7));
 		// Row 3
 		player1_pieces[8]->set_positionXY(std::make_pair(3,2));
 		player1_pieces[9]->set_positionXY(std::make_pair(3,4));
