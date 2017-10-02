@@ -16,9 +16,11 @@ draughts::model::model * draughts::model::model::get_instance(void)
     return instance.get();
 }
 
-int draughts::model::model::get_player_score(int playernum)
+int draughts::model::model::get_player_score(int playerID)
 {
-    return EOF;
+    std::map<int, std::string> player_list = draughts::model::model::get_player_list();
+	
+	return player_list.find(playerID)->first;
 }
 
 void draughts::model::model::start_game(int plr1, int plr2)
@@ -169,12 +171,11 @@ void draughts::model::model::make_move(int playernum,
 
 void draughts::model::model::add_player(const std::string& p)
 {
-	if(!draughts::model::model::player_exists(p))
-	{
-		player_vector.push_back(p);;
+	if(!draughts::model::model::player_exists(p)){
+		player_vector.push_back(p);
+		std::cout << p <<" have been succesfully added to roster" << std::endl;
 	}
-	else
-	{
+	else{
 		std::cout << p <<" have already been added" << std::endl;
 	}
 }
@@ -228,12 +229,12 @@ void draughts::model::model::delete_instance(void)
 
 int draughts::model::model::get_width()
 {
-    return EOF;
+    return WIDTH;
 }
 
 int draughts::model::model::get_height()
 {
-    return EOF;
+    return HEIGHT;
 }
 
 draughts::model::model::~model(void)
