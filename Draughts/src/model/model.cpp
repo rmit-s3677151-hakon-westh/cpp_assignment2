@@ -141,7 +141,7 @@ bool draughts::model::model::validate_move(int playernum,
     int startx, int starty, int endx, int endy)
 {
     auto p_ptr = draughts::model::model::get_piece_from_position(startx, starty);
-    if ((*p_ptr).get_ownerID() != playernum)
+    if (p_ptr != nullptr && (*p_ptr).get_ownerID() != playernum)
         return false;
     /* TODO: insert rules here */
     return true;
