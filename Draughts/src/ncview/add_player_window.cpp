@@ -25,8 +25,6 @@ void draughts::ncview::add_player_window::activate(void)
             return;
         }
     }
-    std::cout << "Successfully added " << name << " to the player roster."
-        << std::endl;
     std::cout << "Press <enter> to continue: " << std::endl;
     std::cin.get();
     view->main_menu();

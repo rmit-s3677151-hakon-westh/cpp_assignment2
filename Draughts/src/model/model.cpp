@@ -138,13 +138,61 @@ char draughts::model::model::get_token(int x ,int y)
 }
 
 bool draughts::model::model::validate_move(int playernum,
-    int startx, int starty, int endx, int endy)
+    int start_row, int start_col, int end_row, int end_col)
 {
-    auto p_ptr = draughts::model::model::get_piece_from_position(startx, starty);
+    auto p_ptr = draughts::model::model::get_piece_from_position(start_row, start_col);
     if (p_ptr != nullptr && (*p_ptr).get_ownerID() != playernum)
         return false;
-    /* TODO: insert rules here */
+    /* TODO: insert rules here 
+	
+	// piece kan kunne rykke skråt fremad
+	// piece1 conquer piece2 ved at hoppe skråtover
+		// hvis 1piece kan conquer en anden piece3 efterfølgende så må han det
+		(Note det er ligemeget om det er samme retning eller om det er en anden retning=)
+		(dette skal evt. være i checker metode)
+	// hvis piece lander på den modsatte ende række så bliver det en konge
+	// kongen kan rykke skråtfremad og skråttilbage
+	*/
     return true;
+	
+	//Choose valid (dir)ection for player depending on player 1 or 2
+	int dir;
+	if(player1->get_player_ID() == playernum){ 	// player 1
+		dir = 1;
+	}
+	else{ 										// player 2
+		dir = -1;
+	}
+	
+	
+	
+	//*player id 1 så ned
+	std::pair<int, int> end (end_row,end_col);
+	std::pair<int, int> kernel_0 (start_row,start_col);
+	// possible moves from start XY 3,4
+	std::pair<int, int> kernel_1 (start_row+1*dir,start_col-1);
+	std::pair<int, int> kernel_2 (start_row+1*dir,start_col+1);
+	std::pair<int, int> kernel_3 (start_row+2*dir,start_col-2);
+	std::pair<int, int> kernel_4 (start_row+2*dir,start_col+2);
+	
+	// Does move exceed board limits?
+	if(end.first < 1 || end.first > HEIGHT || end.second < 1 || end.second > WIDTH){
+		std::cout << "Move exceeded board limits" << std::endl;
+	}
+	// Is move on a kernel?
+	else if(end==kernel_1 || end==kernel_2 || end==kernel_3 || end==kernel_4){
+		// Is there already a piece on end move
+		if(get_piece_from_position(end.first,end.second)==nullptr)
+			std::cout << "Invalid move" << std::endl;
+		else{
+			
+		}
+	}
+	else{
+		std::cout << "Invalid move" << std::endl;
+	}
+	
+	
 }
 
 std::unique_ptr<draughts::model::piece> draughts::model::model::get_piece_from_position(int pos_x, int pos_y)
@@ -175,10 +223,12 @@ void draughts::model::model::add_player(const std::string& p)
 {
 	if(!draughts::model::model::player_exists(p)){
 		player_vector.push_back(p);
-		std::cout << p <<" have been succesfully added to roster" << std::endl;
+		std::cout << "Successfully added " << p << " to the player roster."
+        << std::endl;
 	}
 	else{
-		std::cout << p <<" have already been added" << std::endl;
+		std::cout << p <<" have already been added to the player roster." 
+		<< std::endl;
 	}
 }
 

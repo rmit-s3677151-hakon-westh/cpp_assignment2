@@ -1,4 +1,4 @@
-# Install script for directory: /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts
+# Install script for directory: /Assign/cpp_assignment2/Draughts
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Assign/cpp_assignment2/Draughts/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
