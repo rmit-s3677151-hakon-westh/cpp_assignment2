@@ -14,8 +14,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o"
   "CMakeFiles/Draughts.dir/src/ncview/window.cpp.o"
   "Draughts.pdb"
-  "Draughts.exe"
-  "libDraughts.dll.a"
+  "Draughts"
 )
 
 # Per-language clean rules from dependency scanning.
