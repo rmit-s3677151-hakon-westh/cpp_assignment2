@@ -1,0 +1,6 @@
+
+*.exe
+*.cmake
+*.o
+Draughts/Draughts
+Draughts/Makefile
