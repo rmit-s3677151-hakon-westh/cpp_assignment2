@@ -41,6 +41,7 @@ void draughts::model::model::start_game(int plr1, int plr2)
     // Set pointers to players
     player1 = std::make_unique<draughts::model::player>(player_vector.at(plr1));
     player1 = std::make_unique<draughts::model::player>(player_vector.at(plr2));
+    player2 = std::make_unique<draughts::model::player>(player_vector.at(plr2));
 
 	// Create tokens
 	draughts::model::model::create_tokens(1,plr1);
@@ -69,9 +70,11 @@ void draughts::model::model::create_tokens(int player_in_game, int plrID)
 	for (int piece = 0; piece < 12; ++piece){
 		if(player_in_game == 1){
 			player1_pieces.push_back(draughts::model::piece(plrID, token));
+			player1_pieces.push_back(new draughts::model::piece(plrID, token));
 		}
 		else{
 			player2_pieces.push_back(draughts::model::piece(plrID, token));
+			player2_pieces.push_back(new draughts::model::piece(plrID, token));
 		}
 	}
 }
@@ -84,16 +87,28 @@ void draughts::model::model::initialise_board(){
 		player1_pieces[1].set_positionXY(std::make_pair(1,4));
 		player1_pieces[2].set_positionXY(std::make_pair(1,6));
 		player1_pieces[3].set_positionXY(std::make_pair(1,8));
+		player1_pieces[0]->set_positionXY(std::make_pair(1,2));
+		player1_pieces[1]->set_positionXY(std::make_pair(1,4));
+		player1_pieces[2]->set_positionXY(std::make_pair(1,6));
+		player1_pieces[3]->set_positionXY(std::make_pair(1,8));
 		// Row 2
 		player1_pieces[4].set_positionXY(std::make_pair(2,1));
 		player1_pieces[5].set_positionXY(std::make_pair(1,3));
 		player1_pieces[6].set_positionXY(std::make_pair(1,5));
 		player1_pieces[7].set_positionXY(std::make_pair(1,7));
+		player1_pieces[4]->set_positionXY(std::make_pair(2,1));
+		player1_pieces[5]->set_positionXY(std::make_pair(2,3));
+		player1_pieces[6]->set_positionXY(std::make_pair(2,5));
+		player1_pieces[7]->set_positionXY(std::make_pair(2,7));
 		// Row 3
 		player1_pieces[8].set_positionXY(std::make_pair(3,2));
 		player1_pieces[9].set_positionXY(std::make_pair(3,4));
 		player1_pieces[10].set_positionXY(std::make_pair(3,6));
 		player1_pieces[11].set_positionXY(std::make_pair(3,8));
+		player1_pieces[8]->set_positionXY(std::make_pair(3,2));
+		player1_pieces[9]->set_positionXY(std::make_pair(3,4));
+		player1_pieces[10]->set_positionXY(std::make_pair(3,6));
+		player1_pieces[11]->set_positionXY(std::make_pair(3,8));
 
 	// Player 2
 		// Row 6
@@ -101,16 +116,28 @@ void draughts::model::model::initialise_board(){
 		player2_pieces[1].set_positionXY(std::make_pair(6,3));
 		player2_pieces[2].set_positionXY(std::make_pair(6,5));
 		player2_pieces[3].set_positionXY(std::make_pair(6,7));
+		player2_pieces[0]->set_positionXY(std::make_pair(6,1));
+		player2_pieces[1]->set_positionXY(std::make_pair(6,3));
+		player2_pieces[2]->set_positionXY(std::make_pair(6,5));
+		player2_pieces[3]->set_positionXY(std::make_pair(6,7));
 		// Row 7
 		player2_pieces[4].set_positionXY(std::make_pair(7,2));
 		player2_pieces[5].set_positionXY(std::make_pair(7,4));
 		player2_pieces[6].set_positionXY(std::make_pair(7,6));
 		player2_pieces[7].set_positionXY(std::make_pair(7,8));
+		player2_pieces[4]->set_positionXY(std::make_pair(7,2));
+		player2_pieces[5]->set_positionXY(std::make_pair(7,4));
+		player2_pieces[6]->set_positionXY(std::make_pair(7,6));
+		player2_pieces[7]->set_positionXY(std::make_pair(7,8));
 		// Row 8
 		player2_pieces[8].set_positionXY(std::make_pair(8,1));
 		player2_pieces[9].set_positionXY(std::make_pair(8,3));
 		player2_pieces[10].set_positionXY(std::make_pair(8,5));
 		player2_pieces[11].set_positionXY(std::make_pair(8,7));
+		player2_pieces[8]->set_positionXY(std::make_pair(8,1));
+		player2_pieces[9]->set_positionXY(std::make_pair(8,3));
+		player2_pieces[10]->set_positionXY(std::make_pair(8,5));
+		player2_pieces[11]->set_positionXY(std::make_pair(8,7));
 }
 
 
@@ -125,6 +152,8 @@ std::string draughts::model::model::get_player_name(int id)
     {
         if (id == (*p_it).get_player_ID())
             return (*p_it).get_player_name();
+        if (id == p_it->get_player_ID())
+            return p_it->get_player_name();
     }
     return "";
 }
@@ -135,6 +164,8 @@ char draughts::model::model::get_token(int x ,int y)
     if (p_ptr != nullptr)
         return (*p_ptr).get_token();
     return '\0';
+        return (*p_ptr)->get_token();
+    return ' ';
 }
 
 bool draughts::model::model::validate_move(int playernum,
@@ -193,21 +224,32 @@ bool draughts::model::model::validate_move(int playernum,
 	}
 	
 	
+    auto p_ptr = draughts::model::model::get_piece_from_position(startx, starty);
+    if (p_ptr != nullptr && (*p_ptr)->get_ownerID() == playernum)
+        return true;
+    /* TODO: insert rules here */
+    return false;
 }
 
 std::unique_ptr<draughts::model::piece> draughts::model::model::get_piece_from_position(int pos_x, int pos_y)
+std::unique_ptr<draughts::model::piece*> draughts::model::model::get_piece_from_position(int pos_x, int pos_y)
 {
     std::unique_ptr<draughts::model::piece> p_ptr = nullptr;
+    std::unique_ptr<draughts::model::piece*> p_ptr(nullptr);
     auto input_positionXY = std::make_pair(pos_x, pos_y);
     for (auto p1_it = player1_pieces.begin(); p1_it != player1_pieces.end(); ++p1_it)
     {
         if (input_positionXY == (*p1_it).get_positionXY())
             p_ptr = std::make_unique<draughts::model::piece>(*p1_it);
+        if (input_positionXY == (*p1_it)->get_positionXY())
+            p_ptr = std::make_unique<draughts::model::piece*>(*p1_it);
     }
     for (auto p2_it = player2_pieces.begin(); p2_it != player2_pieces.end(); ++p2_it)
     {
         if (input_positionXY == (*p2_it).get_positionXY())
             p_ptr = std::make_unique<draughts::model::piece>(*p2_it);
+        if (input_positionXY == (*p2_it)->get_positionXY())
+            p_ptr = std::make_unique<draughts::model::piece*>(*p2_it);
     }
     return p_ptr;
 }
@@ -217,6 +259,15 @@ void draughts::model::model::make_move(int playernum,
 {
     auto p_ptr = draughts::model::model::get_piece_from_position(startx, starty);
     (*p_ptr).set_positionXY(std::make_pair(endx, endy));
+    if (p_ptr != nullptr)
+        (*p_ptr)->set_positionXY(std::make_pair(endx, endy));
+    else
+        std::cerr << "Piece not found, something went horribly wrong..." << std::endl;
+
+    std::cout << "after positionXY: " << (*p_ptr)->get_positionX() << (*p_ptr)->get_positionY() << std::endl;
+
+    /* turn has ended, give turn to the other player */
+    turn = !turn;
 }
 
 void draughts::model::model::add_player(const std::string& p)

@@ -26,8 +26,8 @@ namespace draughts
                 bool player_exists(int); /* DONE */
                 std::unique_ptr<player> player1;
                 std::unique_ptr<player> player2;
-                std::vector<piece> player1_pieces;
-                std::vector<piece> player2_pieces;
+                std::vector<piece*> player1_pieces;
+                std::vector<piece*> player2_pieces;
                 std::vector<player> player_vector;
                 bool turn;
                 const int WIDTH = 8;
@@ -38,7 +38,7 @@ namespace draughts
                 void initialise_board(); /* Søren */
                 char get_token(int,int); /* Søren */
                 bool validate_move(int, int, int, int, int); /* Håkon */
-                std::unique_ptr<piece> get_piece_from_position(int, int); /* DONE */
+                std::unique_ptr<piece*> get_piece_from_position(int, int); /* DONE */
                 void make_move(int, int, int, int, int); /* DONE */
                 void add_player(const std::string&); /* DONE */
                 int get_player_score(int); /* Søren */
