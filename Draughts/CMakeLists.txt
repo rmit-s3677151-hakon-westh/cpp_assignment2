@@ -23,9 +23,6 @@ else()
 	set (CMAKE_CXX_STANDARD 14)
 endif()
 
-######## !!!!!!!! #######
-set(CMAKE_CXX_STANDARD 14)
-
 # Set project name
 project(Draughts)
 
@@ -40,6 +37,12 @@ file(GLOB SOURCES
     "src/ncview/*.h"
     "src/ncview/*.cpp"
 )
+
+# Add boost library
+find_package(Boost)
+if (Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIR})
+endif()
 
 # Set to debug type
 set(CMAKE_BUILD_TYPE Debug)
@@ -57,4 +60,4 @@ add_executable(
 )
 
 # Link executable to external libraries
-target_link_libraries (Draughts)
+target_link_libraries (Draughts ${Boost_LIBRARIES})
