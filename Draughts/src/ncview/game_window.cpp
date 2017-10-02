@@ -35,10 +35,10 @@ void draughts::ncview::game_window::activate(void)
             {
                 std::cerr << "Move not valid, try again you pleb..." << std::endl;
                 move_coords = get_move_input();
-                themodel->make_move(playernum, move_coords.first.first,
-                    move_coords.first.second, move_coords.second.first,
-                    move_coords.second.second);
             }
+            themodel->make_move(playernum, move_coords.first.first,
+                move_coords.first.second, move_coords.second.first,
+                move_coords.second.second);
         }
         catch(std::exception& ex)
         {
@@ -55,7 +55,7 @@ std::pair<std::pair<int,int>, std::pair<int,int>>
     std::pair<int,int> start;
     std::pair<int,int> end;
     std::cout << "Please enter your next move: " ;
-    window::get_input(input);
+    input = window::get_input(themodel->get_player_name(themodel->get_current_player()));
     std::vector<std::string> moves;
     std::vector<std::string> coords;
     boost::split(moves, input, [](char ch){return ch == '-';});

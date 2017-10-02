@@ -43,6 +43,18 @@ int main()
 	p_ptr = move(std::make_unique<draughts::model::king>(1, 't'));
 	print_piece_pointer_info(*p_ptr);
 
+	std::vector<draughts::model::piece*> p_pieces;
+
+	for (int piece = 0; piece < 12; ++piece)
+	{
+		p_pieces.push_back(new draughts::model::piece(1, 'w'));
+	}
+
+	for (auto p_it = p_pieces.begin(); p_it != p_pieces.end(); ++p_it)
+	{
+		print_piece_info(*(*p_it));
+	}
+
 	std::cout << std::endl << "### Multiple creation test ###" << std::endl << std::endl;
 
     std::vector<draughts::model::piece> pieces;
