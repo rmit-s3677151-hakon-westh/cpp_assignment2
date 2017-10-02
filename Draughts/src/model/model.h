@@ -39,6 +39,7 @@ namespace draughts
                 void initialise_board(); /* Søren */
                 char get_token(int,int); /* Søren */
                 bool validate_move(int, int, int, int, int); /* Håkon */
+                void capture(int, std::pair<int, int>);
                 std::unique_ptr<piece*> get_piece_from_position(int, int); /* DONE */
                 void make_move(int, int, int, int, int); /* DONE */
                 void add_player(const std::string&); /* DONE */
