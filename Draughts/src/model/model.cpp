@@ -208,6 +208,7 @@ bool draughts::model::model::validate_move(int playernum,
 		
 		if(get_piece_from_position(kernel_2.first,kernel_2.second)!=nullptr &&
 		(*get_piece_from_position(kernel_2.first,kernel_2.second))->get_ownerID()!= playernum){
+			
 			return true;
 		}
 		else{
