@@ -21,7 +21,7 @@ namespace draughts
             std::pair<std::pair<int,int>, std::pair<int,int>>
                 get_move_input(void);
                 std::pair<int,int> strtocoord(const std::string&);
-            
+
             public:
                 game_window(const player_pair&);
                 virtual void activate(void) override;

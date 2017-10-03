@@ -96,6 +96,7 @@ void draughts::model::model::initialise_board(){
 		player1_pieces[11]->set_positionXY(std::make_pair(3,8));
 
 	// Player 2
+    /*
 		// Row 6
 		player2_pieces[0]->set_positionXY(std::make_pair(6,1));
 		player2_pieces[1]->set_positionXY(std::make_pair(6,3));
@@ -111,6 +112,11 @@ void draughts::model::model::initialise_board(){
 		player2_pieces[9]->set_positionXY(std::make_pair(8,3));
 		player2_pieces[10]->set_positionXY(std::make_pair(8,5));
 		player2_pieces[11]->set_positionXY(std::make_pair(8,7));
+        */
+        // TEST PIECES
+		player2_pieces[0]->set_positionXY(std::make_pair(4,5));
+		player2_pieces[1]->set_positionXY(std::make_pair(6,7));
+        player2_pieces[2]->set_positionXY(std::make_pair(6,5));
 }
 
 
@@ -156,6 +162,7 @@ bool draughts::model::model::validate_move(int playernum,
 	*/
 
 	//Choose valid (dir)ection for player depending on player 1 or 2
+    /* TODO lav en get_direction metode.... */
 	int dir;
 	if(player1->get_player_ID() == playernum){ 	// player 1
 		dir = 1;
@@ -164,12 +171,18 @@ bool draughts::model::model::validate_move(int playernum,
 		dir = -1;
 	}
 
-
-
 	//*player id 1 så ned
 	std::pair<int, int> end (end_row,end_col);
-	std::pair<int, int> kernel_0 (start_row,start_col);
+	// std::pair<int, int> kernel_0 (start_row,start_col);
 	// possible moves from start XY 3,4
+    /* * * * * * * * * * */
+    /* Kernel structure */
+    /* * * * * * * * * * */
+    // [3]       [4]
+    //    [1]  [2]
+    //       [0]
+    //    [5]  [6]
+    // [7]       [8]
 	std::pair<int, int> kernel_1 (start_row+1*dir,start_col-1);
 	std::pair<int, int> kernel_2 (start_row+1*dir,start_col+1);
 	std::pair<int, int> kernel_3 (start_row+2*dir,start_col-2);
@@ -192,35 +205,92 @@ bool draughts::model::model::validate_move(int playernum,
 		}
 	}
 	else if(end==kernel_3){
-
-		if(get_piece_from_position(kernel_1.first,kernel_1.second)!=nullptr &&
-		(*get_piece_from_position(kernel_1.first,kernel_1.second))->get_ownerID()!= playernum){
-            capture(playernum, kernel_1);
-			return true;
-		}
-		else{
-			std::cout << "Invalid move" << std::endl;
-			return false;
-		}
-
+        return draughts::model::model::check_kernel(kernel_1, playernum);
 	}
 	else if(end==kernel_4){
-
-		if(get_piece_from_position(kernel_2.first,kernel_2.second)!=nullptr &&
-		(*get_piece_from_position(kernel_2.first,kernel_2.second))->get_ownerID()!= playernum){
-			capture(playernum, kernel_2);
-			return true;
-		}
-		else{
-			std::cout << "Invalid move" << std::endl;
-			return false;
-		}
+        return draughts::model::model::check_kernel(kernel_2, playernum);
 	}
 	else{
 		std::cout << "Invalid move" << std::endl;
 		return false;
 	}
 
+}
+
+void draughts::model::model::valid_for_second_move(int playernum, int start_row, int start_col)
+{
+    /* TODO VI TJEKKER IKKE FOR BOUNDARIES!!! */
+    int dir;
+	if(player1->get_player_ID() == playernum){ 	// player 1
+		dir = 1;
+	}
+	else{ 										// player 2
+		dir = -1;
+	}
+    std::pair<int, int> kernel_1 (start_row+1*dir,start_col-1);
+	std::pair<int, int> kernel_2 (start_row+1*dir,start_col+1);
+	std::pair<int, int> kernel_3 (start_row+2*dir,start_col-2);
+	std::pair<int, int> kernel_4 (start_row+2*dir,start_col+2);
+    if (draughts::model::model::check_kernel(kernel_1, playernum) && draughts::model::model::check_kernel(kernel_2, playernum))
+    {
+        // prompt user for decision
+        int decision;
+        do
+        {
+            std::cout << "How about you make a decision you dumb fuck?" << std::endl;
+            std::cout << "1 for capture piece 1, end position: ";
+            std::cout << kernel_3.first << "," << kernel_3.second << std::endl;
+            std::cout << "2 for capture piece 2, end position: ";
+            std::cout << kernel_4.first << "," << kernel_4.second << std::endl;
+            std::cout << "Enter decision: ";
+            if (std::cin >> decision) {
+                break;
+            } else {
+                std::cout << "Please enter 1 or 2: " << std::endl;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            }
+        } while (decision != 1 || decision != 2);
+
+        // make_move according to position
+        if (decision == 1)
+        {
+            draughts::model::model::make_move(playernum, start_row, start_col, kernel_3.first, kernel_3.second);
+            draughts::model::model::valid_for_second_move(playernum, kernel_3.first, kernel_3.second);
+        }
+        else
+        {
+            draughts::model::model::make_move(playernum, start_row, start_col, kernel_4.first, kernel_4.second);
+            draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
+        }
+    }
+    else if (draughts::model::model::check_kernel(kernel_1, playernum))
+    {
+        // forced move to kernel_3
+        draughts::model::model::make_move(playernum, start_row, start_col, kernel_3.first, kernel_3.second);
+        std::cout << "Automatic capturing successful" << std::endl;
+        draughts::model::model::valid_for_second_move(playernum, kernel_3.first, kernel_3.second);
+    }
+    else if (draughts::model::model::check_kernel(kernel_2, playernum))
+    {
+        // forced move to kernel_4
+        draughts::model::model::make_move(playernum, start_row, start_col, kernel_4.first, kernel_4.second);
+        std::cout << "Automatic capturing successful" << std::endl;
+        draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
+    }
+}
+
+bool draughts::model::model::check_kernel(std::pair<int, int> kernel_down, int playernum)
+{
+    if(get_piece_from_position(kernel_down.first,kernel_down.second)!=nullptr &&
+    (*get_piece_from_position(kernel_down.first,kernel_down.second))->get_ownerID()!= playernum){
+        capture(playernum, kernel_down);
+        return true;
+    }
+    else{
+        // TODO husk at giv besked i validate_move std::cout << "Invalid move" << std::endl;
+        return false;
+    }
 }
 
 void draughts::model::model::capture(int killer_ID, std::pair<int, int> positionRC)
@@ -257,17 +327,30 @@ std::unique_ptr<draughts::model::piece*> draughts::model::model::get_piece_from_
 }
 
 void draughts::model::model::make_move(int playernum,
-        int startx, int starty, int endx, int endy)
+        int start_row, int start_col, int end_row, int end_col)
 {
-    auto p_ptr = draughts::model::model::get_piece_from_position(startx, starty);
-    std::cout << "before positionXY: " << (*p_ptr)->get_positionX() << (*p_ptr)->get_positionY() << std::endl;
+    auto p_ptr = draughts::model::model::get_piece_from_position(start_row, start_col);
+    //std::cout << "before positionXY: " << (*p_ptr)->get_positionX() << (*p_ptr)->get_positionY() << std::endl;
     if (p_ptr != nullptr)
-        (*p_ptr)->set_positionXY(std::make_pair(endx, endy));
+        (*p_ptr)->set_positionXY(std::make_pair(end_row, end_col));
     else
         std::cerr << "Piece not found, something went horribly wrong..." << std::endl;
 
-    std::cout << "after positionXY: " << (*p_ptr)->get_positionX() << (*p_ptr)->get_positionY() << std::endl;
+    //std::cout << "after positionXY: " << (*p_ptr)->get_positionX() << (*p_ptr)->get_positionY() << std::endl;
 
+    // TODO: DETTE ER EGENTLIG REKURSION! FIX
+    // TODO: while(valid_for_second_move());
+    //valid_for_second_move(playernum, end_row, end_col);
+
+    // while (valid_for_second_move) DETTE ER EGENTLIG REKURSION! FIX TODO
+    //      prompt user for choice
+    //      themodel->make_forced_move()
+
+    /* end of turn */
+}
+
+void draughts::model::model::turner()
+{
     /* turn has ended, give turn to the other player */
     turn = !turn;
 }

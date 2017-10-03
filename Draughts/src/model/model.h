@@ -34,22 +34,25 @@ namespace draughts
                 const int WIDTH = 8;
                 const int HEIGHT = 8;
             public:
-                void start_game(int, int); /* Søren */
-                void create_tokens(int, int); /* Søren */
-                void initialise_board(); /* Søren */
-                char get_token(int,int); /* Søren */
-                bool validate_move(int, int, int, int, int); /* Håkon */
-                void capture(int, std::pair<int, int>);
+                void start_game(int, int); /* DONE */
+                void create_tokens(int, int); /* DONE */
+                void initialise_board(); /* DONE */
+                char get_token(int,int); /* DONE */
+                bool validate_move(int, int, int, int, int); /* IN PROGRESS */
+                void valid_for_second_move(int, int, int); /* IN PROGRESS */
+                bool check_kernel(std::pair<int, int>, int); /* DONE */
+                void capture(int, std::pair<int, int>); /* DONE */
                 std::unique_ptr<piece*> get_piece_from_position(int, int); /* DONE */
                 void make_move(int, int, int, int, int); /* DONE */
+                void turner(); /* DONE */
                 void add_player(const std::string&); /* DONE */
-                int get_player_score(int); /* Søren */
+                int get_player_score(int); /* DONE */
                 int get_current_player(void); /* DONE */
                 std::string get_player_name(int); /* DONE */
                 std::map<int, std::string> get_player_list(void) const; /* DONE */
-                int get_winner(); /* Håkon */
-                int get_width(); /* Søren */
-                int get_height(); /* Søren */
+                int get_winner(); /* SCHEDULED */
+                int get_width(); /* DONE */
+                int get_height(); /* DONE */
                 static model * get_instance(void); /* DONE */
                 static void delete_instance(void); /* DONE */
                 virtual ~model(void);
