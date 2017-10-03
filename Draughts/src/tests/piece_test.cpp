@@ -55,6 +55,21 @@ int main()
 		print_piece_info(*(*p_it));
 	}
 
+	draughts::model::piece* just_a_pointer = new draughts::model::piece(11, 'b');
+	auto p1_ptr = std::unique_ptr<draughts::model::piece>(just_a_pointer);
+
+	std::cout << "Typeid 1: " << typeid(just_a_pointer).name() << std::endl;
+	std::cout << "Typeid 2: " << typeid(p1_ptr).name() << std::endl;
+
+	/*
+	for (auto p_it = p_pieces.begin(); p_it != p_pieces.end(); ++p_it)
+	{
+		auto u_ptr = std::make_unique<draughts::model::piece>(*p_it);
+		std::cout << "Typeid before auto: " << typeid(*p_it).name() << " ";
+		std::cout << "Typeid after auto: " << typeid(u_ptr).name() << std::endl;
+	}
+	*/
+
 	std::cout << std::endl << "### Multiple creation test ###" << std::endl << std::endl;
 
     std::vector<draughts::model::piece> pieces;
