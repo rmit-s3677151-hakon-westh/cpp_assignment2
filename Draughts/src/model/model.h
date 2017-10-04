@@ -10,6 +10,7 @@
 #include <algorithm>
 #include "player.h"
 #include "piece.h"
+#include "king.h"
 #include "../direction.h"
 
 #pragma once
@@ -42,6 +43,7 @@ namespace draughts
                 void valid_for_second_move(int, int, int); /* IN PROGRESS */
                 bool check_kernel(std::pair<int, int>, std::pair<int, int>, int); /* DONE */
                 void capture(int, std::pair<int, int>); /* DONE */
+                void check_if_piece_to_king(int, int, int);
                 std::unique_ptr<piece*> get_piece_from_position(int, int); /* DONE */
                 void make_move(int, int, int, int, int); /* DONE */
                 void turner(); /* DONE */
