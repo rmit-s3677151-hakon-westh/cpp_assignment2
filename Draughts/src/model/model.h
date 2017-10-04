@@ -46,6 +46,7 @@ namespace draughts
                 void make_move(int, int, int, int, int); /* DONE */
                 void turner(); /* DONE */
                 void add_player(const std::string&); /* DONE */
+				int get_direction(int); /* DONE */
                 int get_player_score(int); /* DONE */
                 int get_current_player(void); /* DONE */
                 std::string get_player_name(int); /* DONE */

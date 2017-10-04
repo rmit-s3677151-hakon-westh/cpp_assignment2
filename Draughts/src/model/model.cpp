@@ -161,32 +161,29 @@ bool draughts::model::model::validate_move(int playernum,
 	// kongen kan rykke skråtfremad og skråttilbage
 	*/
 
-	//Choose valid (dir)ection for player depending on player 1 or 2
+	//Choose valid (get_direction(playernum))ection for player depending on player 1 or 2
     /* TODO lav en get_direction metode.... */
-	int dir;
-	if(player1->get_player_ID() == playernum){ 	// player 1
-		dir = 1;
-	}
-	else{ 										// player 2
-		dir = -1;
-	}
 
-	//*player id 1 så ned
 	std::pair<int, int> end (end_row,end_col);
-	// std::pair<int, int> kernel_0 (start_row,start_col);
-	// possible moves from start XY 3,4
     /* * * * * * * * * * */
     /* Kernel structure */
     /* * * * * * * * * * */
     // [3]       [4]    <- up
     //    [1]  [2]      <- down
     //       [0]
-    //    [5]  [6]
-    // [7]       [8]
-	std::pair<int, int> kernel_1 (start_row+1*dir,start_col-1);
-	std::pair<int, int> kernel_2 (start_row+1*dir,start_col+1);
-	std::pair<int, int> kernel_3 (start_row+2*dir,start_col-2);
-	std::pair<int, int> kernel_4 (start_row+2*dir,start_col+2);
+    //    [5]  [6]		<- down
+    // [7]       [8]	<- up
+
+	
+	std::pair<int, int> kernel_1 (start_row+1*get_direction(playernum),start_col-1);
+	std::pair<int, int> kernel_2 (start_row+1*get_direction(playernum),start_col+1);
+	std::pair<int, int> kernel_3 (start_row+2*get_direction(playernum),start_col-2);
+	std::pair<int, int> kernel_4 (start_row+2*get_direction(playernum),start_col+2);
+	std::pair<int, int> kernel_5 (start_row-1*get_direction(playernum),start_col-1);
+	std::pair<int, int> kernel_6 (start_row-1*get_direction(playernum),start_col+1);
+	std::pair<int, int> kernel_7 (start_row-2*get_direction(playernum),start_col-2);
+	std::pair<int, int> kernel_8 (start_row-2*get_direction(playernum),start_col+2);
+
 
 	// Does move exceed board limits?
 	if(end.first < 1 || end.first > HEIGHT || end.second < 1 || end.second > WIDTH){
@@ -194,6 +191,7 @@ bool draughts::model::model::validate_move(int playernum,
 		return false;
 	}
 	// Is move on a kernel?
+	/////////// For piece and king ////////////////
 	else if(end==kernel_1 || end==kernel_2){
 		// Is there already a piece on end move
 		if(get_piece_from_position(end.first,end.second)==nullptr){
@@ -210,6 +208,23 @@ bool draughts::model::model::validate_move(int playernum,
 	else if(end==kernel_4){
         return draughts::model::model::check_kernel(kernel_2, kernel_4, playernum);
 	}
+	///////////// Only for king //////////////////
+	else if(end==kernel_5 || end==kernel_6)/* && TODO token==KING?)*/{
+		// Is there already a piece on end move
+		if(get_piece_from_position(end.first,end.second)==nullptr){
+			return true;
+		}
+		else{
+			std::cout << "Invalid move" << std::endl;
+			return false;
+		}
+	}
+	else if(end==kernel_7)/* && TODO token==KING?)*/{
+        return draughts::model::model::check_kernel(kernel_5, kernel_7, playernum);
+	}
+	else if(end==kernel_8)/* && TODO token==KING?)*/{
+        return draughts::model::model::check_kernel(kernel_6, kernel_8, playernum);
+	}	
 	else{
 		std::cout << "Invalid move" << std::endl;
 		return false;
@@ -217,22 +232,30 @@ bool draughts::model::model::validate_move(int playernum,
 
 }
 
-void draughts::model::model::valid_for_second_move(int playernum, int start_row, int start_col)
+int draughts::model::model::get_direction(int playernum)
 {
-    /* TODO VI TJEKKER IKKE FOR BOUNDARIES!!! */
-    int dir;
 	if(player1->get_player_ID() == playernum){ 	// player 1
-		dir = 1;
+		return 1;
 	}
 	else{ 										// player 2
-		dir = -1;
+		return -1;
 	}
-    std::pair<int, int> kernel_1 (start_row+1*dir,start_col-1);
-	std::pair<int, int> kernel_2 (start_row+1*dir,start_col+1);
-	std::pair<int, int> kernel_3 (start_row+2*dir,start_col-2);
-	std::pair<int, int> kernel_4 (start_row+2*dir,start_col+2);
+}
+
+void draughts::model::model::valid_for_second_move(int playernum, int start_row, int start_col)
+{
+    std::pair<int, int> kernel_1 (start_row+1*get_direction(playernum),start_col-1);
+	std::pair<int, int> kernel_2 (start_row+1*get_direction(playernum),start_col+1);
+	std::pair<int, int> kernel_3 (start_row+2*get_direction(playernum),start_col-2);
+	std::pair<int, int> kernel_4 (start_row+2*get_direction(playernum),start_col+2);
+	std::pair<int, int> kernel_5 (start_row-1*get_direction(playernum),start_col-1);
+	std::pair<int, int> kernel_6 (start_row-1*get_direction(playernum),start_col+1);
+	std::pair<int, int> kernel_7 (start_row-2*get_direction(playernum),start_col-2);
+	std::pair<int, int> kernel_8 (start_row-2*get_direction(playernum),start_col+2);
+	
+	/////////// For Piece and King ///////////
     if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum)
-        && draughts::model::model::check_kernel(kernel_2, kernel_4, playernum))
+        && draughts::model::model::check_kernel(kernel_2, kernel_4, playernum /* && TODO token==piece?)*/ ))
     {
         // prompt user for decision
         int decision;
@@ -265,6 +288,53 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_row,
             draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
         }
     }
+	/////////// Only for King ///////////
+    else if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum)
+			&& draughts::model::model::check_kernel(kernel_2, kernel_4, playernum)
+			&& (draughts::model::model::check_kernel(kernel_5, kernel_7, playernum)
+			|| draughts::model::model::check_kernel(kernel_6, kernel_8, playernum)))
+		/* && TODO token==king?)*/
+    {
+        // prompt user for decision
+        int decision;
+        do
+        {
+            std::cout << "How about you make a decision you dumb fuck?" << std::endl;
+            std::cout << "1 for capture piece 1, end position: ";
+            std::cout << kernel_3.first << "," << kernel_3.second << std::endl;
+            std::cout << "2 for capture piece 2, end position: ";
+            std::cout << kernel_4.first << "," << kernel_4.second << std::endl;
+			
+			if(draughts::model::model::check_kernel(kernel_5, kernel_7, playernum)){
+				std::cout << "3 for capture piece 3, end position: ";
+				std::cout << kernel_5.first << "," << kernel_5.second << std::endl;
+			}
+			else if(draughts::model::model::check_kernel(kernel_6, kernel_8, playernum)){
+				std::cout << "3 for capture piece 3, end position: ";
+				std::cout << kernel_6.first << "," << kernel_6.second << std::endl;
+			}
+            std::cout << "Enter decision: ";
+            if (std::cin >> decision) {
+                break;
+            } else {
+                std::cout << "Please enter 1, 2 or 3: " << std::endl;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            }
+        } while (decision != 1 || decision != 2 || decision != 3);
+
+        // make_move according to position
+        if (decision == 1)
+        {
+            draughts::model::model::make_move(playernum, start_row, start_col, kernel_5.first, kernel_5.second);
+            draughts::model::model::valid_for_second_move(playernum, kernel_5.first, kernel_5.second);
+        }
+        else
+        {
+            draughts::model::model::make_move(playernum, start_row, start_col, kernel_6.first, kernel_6.second);
+            draughts::model::model::valid_for_second_move(playernum, kernel_6.first, kernel_6.second);
+        }
+    }
     else if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum))
     {
         // forced move to kernel_3
@@ -277,6 +347,22 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_row,
     {
         // forced move to kernel_4
         std::cout << "forced kernel 4" << std::endl;
+        draughts::model::model::make_move(playernum, start_row, start_col, kernel_4.first, kernel_4.second);
+        std::cout << "Automatic capturing successful" << std::endl;
+        draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
+    }
+    else if (draughts::model::model::check_kernel(kernel_5, kernel_7, playernum)/* && TODO token==king?)*/)
+    {
+        // forced move to kernel_3
+        std::cout << "forced kernel 5" << std::endl;
+        draughts::model::model::make_move(playernum, start_row, start_col, kernel_3.first, kernel_3.second);
+        std::cout << "Automatic capturing successful" << std::endl;
+        draughts::model::model::valid_for_second_move(playernum, kernel_3.first, kernel_3.second);
+    }
+    else if (draughts::model::model::check_kernel(kernel_6, kernel_8, playernum)/* && TODO token==king?)*/)
+    {
+        // forced move to kernel_4
+        std::cout << "forced kernel 6" << std::endl;
         draughts::model::model::make_move(playernum, start_row, start_col, kernel_4.first, kernel_4.second);
         std::cout << "Automatic capturing successful" << std::endl;
         draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
