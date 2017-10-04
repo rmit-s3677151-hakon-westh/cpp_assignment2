@@ -41,6 +41,8 @@ void draughts::ncview::game_window::activate(void)
                 move_coords.second.second);
             //display_board();
             themodel->valid_for_second_move(playernum, move_coords.second.first, move_coords.second.second);
+            if (themodel->check_winner())
+                return;
             themodel->turner();
         }
         catch(std::exception& ex)

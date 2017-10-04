@@ -39,8 +39,8 @@ namespace draughts
                 void create_tokens(int, int); /* DONE */
                 void initialise_board(); /* DONE */
                 char get_token(int,int); /* DONE */
-                bool validate_move(int, int, int, int, int); /* IN PROGRESS */
-                void valid_for_second_move(int, int, int); /* IN PROGRESS */
+                bool validate_move(int, int, int, int, int); /* DONE */
+                void valid_for_second_move(int, int, int); /* DONE */
                 bool check_kernel(std::pair<int, int>, std::pair<int, int>, int); /* DONE */
                 void capture(int, std::pair<int, int>); /* DONE */
                 void check_if_piece_to_king(int, int, int);
@@ -53,7 +53,7 @@ namespace draughts
                 int get_current_player(void); /* DONE */
                 std::string get_player_name(int); /* DONE */
                 std::map<int, std::string> get_player_list(void) const; /* DONE */
-                int get_winner(); /* SCHEDULED */
+                bool check_winner(); /* IN PROGRESS */
                 int get_width(); /* DONE */
                 int get_height(); /* DONE */
                 static model * get_instance(void); /* DONE */
