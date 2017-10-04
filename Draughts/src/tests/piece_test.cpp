@@ -43,6 +43,15 @@ int main()
 	p_ptr = move(std::make_unique<draughts::model::king>(1, 't'));
 	print_piece_pointer_info(*p_ptr);
 
+	draughts::model::piece* a_ptr = new draughts::model::piece(3, 'h');
+	auto p_a_ptr = std::make_unique<draughts::model::piece*>(a_ptr);
+	print_piece_pointer_info(*a_ptr);
+	//(*p_a_ptr) = new draughts::model::king(3, 'h');
+	(*p_a_ptr) = new draughts::model::king((*p_a_ptr)->get_ownerID(), (*p_a_ptr)->get_token(), (*p_a_ptr)->get_positionXY());
+	print_piece_pointer_info(*a_ptr);
+	p_a_ptr.release();
+	print_piece_pointer_info(*a_ptr);
+
 	std::vector<draughts::model::piece*> p_pieces;
 
 	for (int piece = 0; piece < 12; ++piece)

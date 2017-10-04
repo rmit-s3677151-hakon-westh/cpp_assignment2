@@ -20,6 +20,10 @@ model/model.h
 
 /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/king.cpp
 
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/king.h
+cctype
+-
+
 /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/model.cpp
 model.h
 /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/model.h
@@ -49,6 +53,8 @@ player.h
 /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/player.h
 piece.h
 /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.h
+king.h
+/Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/king.h
 ../direction.h
 /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/direction.h
 

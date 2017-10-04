@@ -79,6 +79,7 @@ void draughts::model::model::create_tokens(int player_in_game, int plrID)
 void draughts::model::model::initialise_board(){
 
 	// Player 1
+    /*
 		// Row 1
 		player1_pieces[0]->set_positionXY(std::make_pair(1,2));
 		player1_pieces[1]->set_positionXY(std::make_pair(1,4));
@@ -94,6 +95,9 @@ void draughts::model::model::initialise_board(){
 		player1_pieces[9]->set_positionXY(std::make_pair(3,4));
 		player1_pieces[10]->set_positionXY(std::make_pair(3,6));
 		player1_pieces[11]->set_positionXY(std::make_pair(3,8));
+    */
+
+        player1_pieces[0]->set_positionXY(std::make_pair(7,2));
 
 	// Player 2
     /*
@@ -114,8 +118,8 @@ void draughts::model::model::initialise_board(){
 		player2_pieces[11]->set_positionXY(std::make_pair(8,7));
         */
         // TEST PIECES
-		player2_pieces[0]->set_positionXY(std::make_pair(4,3));
-		player2_pieces[1]->set_positionXY(std::make_pair(6,1));
+		player2_pieces[0]->set_positionXY(std::make_pair(2,3));
+		//player2_pieces[1]->set_positionXY(std::make_pair(6,1));
         //player2_pieces[2]->set_positionXY(std::make_pair(6,5));
 }
 
@@ -316,6 +320,28 @@ void draughts::model::model::capture(int killer_ID, std::pair<int, int> position
     }
 }
 
+void draughts::model::model::check_if_piece_to_king(int player_ID, int row, int col)
+{
+    if (player_ID == player1->get_player_ID() && row == HEIGHT)
+    {
+        auto p_ptr = draughts::model::model::get_piece_from_position(row, col);
+        for (auto it = player1_pieces.begin(); it != player1_pieces.end(); ++it)
+        {
+            if ((*it) == (*p_ptr))
+                *it = new draughts::model::king(player_ID, (*p_ptr)->get_token(), (*p_ptr)->get_positionXY());
+        }
+    }
+    else if (player_ID == player2->get_player_ID() && row == 1)
+    {
+        auto p_ptr = draughts::model::model::get_piece_from_position(row, col);
+        for (auto it = player2_pieces.begin(); it != player2_pieces.end(); ++it)
+        {
+            if ((*it) == (*p_ptr))
+                *it = new draughts::model::king(player_ID, (*p_ptr)->get_token(), (*p_ptr)->get_positionXY());
+        }
+    }
+}
+
 std::unique_ptr<draughts::model::piece*> draughts::model::model::get_piece_from_position(int pos_x, int pos_y)
 {
     std::unique_ptr<draughts::model::piece*> p_ptr(nullptr);
@@ -339,9 +365,15 @@ void draughts::model::model::make_move(int playernum,
     auto p_ptr = draughts::model::model::get_piece_from_position(start_row, start_col);
     //std::cout << "before positionXY: " << (*p_ptr)->get_positionX() << (*p_ptr)->get_positionY() << std::endl;
     if (p_ptr != nullptr)
+    {
         (*p_ptr)->set_positionXY(std::make_pair(end_row, end_col));
+        draughts::model::model::check_if_piece_to_king(playernum, end_row, end_col);
+        std::cout << "TOKEN AFTER CHECK IF PIECE " << (*(draughts::model::model::get_piece_from_position(end_row, end_col)))->get_token() << std::endl;
+    }
     else
+    {
         std::cerr << "Piece not found, something went horribly wrong..." << std::endl;
+    }
 
     //std::cout << "after positionXY: " << (*p_ptr)->get_positionX() << (*p_ptr)->get_positionY() << std::endl;
 

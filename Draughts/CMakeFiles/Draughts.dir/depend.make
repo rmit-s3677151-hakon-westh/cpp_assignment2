@@ -3,6 +3,7 @@
 
 CMakeFiles/Draughts.dir/src/main.cpp.o: src/direction.h
 CMakeFiles/Draughts.dir/src/main.cpp.o: src/main.cpp
+CMakeFiles/Draughts.dir/src/main.cpp.o: src/model/king.h
 CMakeFiles/Draughts.dir/src/main.cpp.o: src/model/model.h
 CMakeFiles/Draughts.dir/src/main.cpp.o: src/model/piece.h
 CMakeFiles/Draughts.dir/src/main.cpp.o: src/model/player.h
@@ -541,6 +542,7 @@ CMakeFiles/Draughts.dir/src/main.cpp.o: /usr/local/include/boost/version.hpp
 CMakeFiles/Draughts.dir/src/model/king.cpp.o: src/model/king.cpp
 
 CMakeFiles/Draughts.dir/src/model/model.cpp.o: src/direction.h
+CMakeFiles/Draughts.dir/src/model/model.cpp.o: src/model/king.h
 CMakeFiles/Draughts.dir/src/model/model.cpp.o: src/model/model.cpp
 CMakeFiles/Draughts.dir/src/model/model.cpp.o: src/model/model.h
 CMakeFiles/Draughts.dir/src/model/model.cpp.o: src/model/piece.h
@@ -1085,6 +1087,7 @@ CMakeFiles/Draughts.dir/src/nc_controller/command.cpp.o: /usr/local/include/boos
 CMakeFiles/Draughts.dir/src/nc_controller/command.cpp.o: /usr/local/include/boost/version.hpp
 
 CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o: src/direction.h
+CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o: src/model/king.h
 CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o: src/model/model.h
 CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o: src/model/piece.h
 CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o: src/model/player.h
@@ -1622,6 +1625,7 @@ CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o: /usr/local/include/b
 CMakeFiles/Draughts.dir/src/nc_controller/controller.cpp.o: /usr/local/include/boost/version.hpp
 
 CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o: src/direction.h
+CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o: src/model/king.h
 CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o: src/model/model.h
 CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o: src/model/piece.h
 CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o: src/model/player.h
@@ -2158,6 +2162,7 @@ CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o: /usr/local/include/b
 CMakeFiles/Draughts.dir/src/ncview/add_player_window.cpp.o: /usr/local/include/boost/version.hpp
 
 CMakeFiles/Draughts.dir/src/ncview/game_window.cpp.o: src/direction.h
+CMakeFiles/Draughts.dir/src/ncview/game_window.cpp.o: src/model/king.h
 CMakeFiles/Draughts.dir/src/ncview/game_window.cpp.o: src/model/model.h
 CMakeFiles/Draughts.dir/src/ncview/game_window.cpp.o: src/model/piece.h
 CMakeFiles/Draughts.dir/src/ncview/game_window.cpp.o: src/model/player.h
@@ -4286,6 +4291,7 @@ CMakeFiles/Draughts.dir/src/ncview/player_selection_window.cpp.o: /usr/local/inc
 CMakeFiles/Draughts.dir/src/ncview/player_selection_window.cpp.o: /usr/local/include/boost/version.hpp
 
 CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o: src/direction.h
+CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o: src/model/king.h
 CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o: src/model/model.h
 CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o: src/model/piece.h
 CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o: src/model/player.h
@@ -4823,6 +4829,7 @@ CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o: /usr/local/include/boost/utility/re
 CMakeFiles/Draughts.dir/src/ncview/ui.cpp.o: /usr/local/include/boost/version.hpp
 
 CMakeFiles/Draughts.dir/src/ncview/window.cpp.o: src/direction.h
+CMakeFiles/Draughts.dir/src/ncview/window.cpp.o: src/model/king.h
 CMakeFiles/Draughts.dir/src/ncview/window.cpp.o: src/model/model.h
 CMakeFiles/Draughts.dir/src/ncview/window.cpp.o: src/model/piece.h
 CMakeFiles/Draughts.dir/src/ncview/window.cpp.o: src/model/player.h
