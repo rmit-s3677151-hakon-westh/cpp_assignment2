@@ -40,7 +40,7 @@ namespace draughts
                 char get_token(int,int); /* DONE */
                 bool validate_move(int, int, int, int, int); /* IN PROGRESS */
                 void valid_for_second_move(int, int, int); /* IN PROGRESS */
-                bool check_kernel(std::pair<int, int>, int); /* DONE */
+                bool check_kernel(std::pair<int, int>, std::pair<int, int>, int); /* DONE */
                 void capture(int, std::pair<int, int>); /* DONE */
                 std::unique_ptr<piece*> get_piece_from_position(int, int); /* DONE */
                 void make_move(int, int, int, int, int); /* DONE */

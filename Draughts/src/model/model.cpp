@@ -114,9 +114,9 @@ void draughts::model::model::initialise_board(){
 		player2_pieces[11]->set_positionXY(std::make_pair(8,7));
         */
         // TEST PIECES
-		player2_pieces[0]->set_positionXY(std::make_pair(4,5));
-		player2_pieces[1]->set_positionXY(std::make_pair(6,7));
-        player2_pieces[2]->set_positionXY(std::make_pair(6,5));
+		player2_pieces[0]->set_positionXY(std::make_pair(4,3));
+		player2_pieces[1]->set_positionXY(std::make_pair(6,1));
+        //player2_pieces[2]->set_positionXY(std::make_pair(6,5));
 }
 
 
@@ -178,8 +178,8 @@ bool draughts::model::model::validate_move(int playernum,
     /* * * * * * * * * * */
     /* Kernel structure */
     /* * * * * * * * * * */
-    // [3]       [4]
-    //    [1]  [2]
+    // [3]       [4]    <- up
+    //    [1]  [2]      <- down
     //       [0]
     //    [5]  [6]
     // [7]       [8]
@@ -205,10 +205,10 @@ bool draughts::model::model::validate_move(int playernum,
 		}
 	}
 	else if(end==kernel_3){
-        return draughts::model::model::check_kernel(kernel_1, playernum);
+        return draughts::model::model::check_kernel(kernel_1, kernel_3, playernum);
 	}
 	else if(end==kernel_4){
-        return draughts::model::model::check_kernel(kernel_2, playernum);
+        return draughts::model::model::check_kernel(kernel_2, kernel_4, playernum);
 	}
 	else{
 		std::cout << "Invalid move" << std::endl;
@@ -231,7 +231,8 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_row,
 	std::pair<int, int> kernel_2 (start_row+1*dir,start_col+1);
 	std::pair<int, int> kernel_3 (start_row+2*dir,start_col-2);
 	std::pair<int, int> kernel_4 (start_row+2*dir,start_col+2);
-    if (draughts::model::model::check_kernel(kernel_1, playernum) && draughts::model::model::check_kernel(kernel_2, playernum))
+    if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum)
+        && draughts::model::model::check_kernel(kernel_2, kernel_4, playernum))
     {
         // prompt user for decision
         int decision;
@@ -264,26 +265,32 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_row,
             draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
         }
     }
-    else if (draughts::model::model::check_kernel(kernel_1, playernum))
+    else if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum))
     {
         // forced move to kernel_3
+        std::cout << "forced kernel 3" << std::endl;
         draughts::model::model::make_move(playernum, start_row, start_col, kernel_3.first, kernel_3.second);
         std::cout << "Automatic capturing successful" << std::endl;
         draughts::model::model::valid_for_second_move(playernum, kernel_3.first, kernel_3.second);
     }
-    else if (draughts::model::model::check_kernel(kernel_2, playernum))
+    else if (draughts::model::model::check_kernel(kernel_2, kernel_4, playernum))
     {
         // forced move to kernel_4
+        std::cout << "forced kernel 4" << std::endl;
         draughts::model::model::make_move(playernum, start_row, start_col, kernel_4.first, kernel_4.second);
         std::cout << "Automatic capturing successful" << std::endl;
         draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
     }
 }
 
-bool draughts::model::model::check_kernel(std::pair<int, int> kernel_down, int playernum)
+bool draughts::model::model::check_kernel(std::pair<int, int> kernel_down, std::pair<int, int> kernel_up, int playernum)
 {
-    if(get_piece_from_position(kernel_down.first,kernel_down.second)!=nullptr &&
-    (*get_piece_from_position(kernel_down.first,kernel_down.second))->get_ownerID()!= playernum){
+    if(get_piece_from_position(kernel_up.first,kernel_up.second)==nullptr
+        && !(kernel_up.first < 1 || kernel_up.first > HEIGHT || kernel_up.second < 1 || kernel_up.second > WIDTH)
+        && get_piece_from_position(kernel_down.first,kernel_down.second)!=nullptr
+        && (*get_piece_from_position(kernel_down.first,kernel_down.second))->get_ownerID()!=playernum)
+    {
+        std::cout << kernel_down.first << kernel_down.second << " SO " << std::endl;
         capture(playernum, kernel_down);
         return true;
     }
