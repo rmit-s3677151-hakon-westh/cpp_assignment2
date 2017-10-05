@@ -31,6 +31,7 @@ namespace draughts
                 std::vector<piece*> player1_pieces;
                 std::vector<piece*> player2_pieces;
                 std::vector<player> player_vector;
+				bool capture_flag; /* DONE */
                 bool turn;
                 const int WIDTH = 8;
                 const int HEIGHT = 8;

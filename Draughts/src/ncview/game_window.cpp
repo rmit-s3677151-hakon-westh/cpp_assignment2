@@ -87,8 +87,8 @@ std::pair<int,int> draughts::ncview::game_window::strtocoord(
     int x, y;
     std::vector<std::string> parts;
     boost::split(parts, input, [](char ch){ return ch == ',';});
-    x = stoi(parts[0]);
-    y = stoi(parts[1]);
+    x = stoi(parts[1]);
+    y = stoi(parts[0]);
     return std::make_pair(x,y);
 }
 
