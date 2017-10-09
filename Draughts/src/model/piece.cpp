@@ -23,6 +23,17 @@ draughts::model::piece::~piece()
 /* public methods */
 /******************/
 
+bool draughts::model::piece::operator ==(const piece& comp_piece)
+{
+    if (ownerID == comp_piece.get_ownerID()
+        && token == comp_piece.get_token()
+        && positionXY == comp_piece.get_positionXY())
+    {
+        return true;
+    }
+    return false;
+}
+
 int draughts::model::piece::get_ownerID() const
 {
     return ownerID;

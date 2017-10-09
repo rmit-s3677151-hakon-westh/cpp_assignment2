@@ -16,6 +16,7 @@ namespace draughts
                 piece();
                 piece(int, char);
 				piece(int, char, std::pair<int, int>);
+                bool operator ==(const piece&);
                 int get_ownerID() const;
                 char get_token() const;
 				std::pair<int, int> get_positionXY() const;
