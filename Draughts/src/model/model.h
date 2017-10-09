@@ -8,6 +8,7 @@
 #include <chrono>
 #include <vector>
 #include <algorithm>
+#include <boost/optional.hpp>
 #include "player.h"
 #include "piece.h"
 #include "king.h"
@@ -28,8 +29,8 @@ namespace draughts
                 bool player_exists(int); /* DONE */
                 std::unique_ptr<player> player1;
                 std::unique_ptr<player> player2;
-                std::vector<piece*> player1_pieces;
-                std::vector<piece*> player2_pieces;
+                std::vector<piece> player1_pieces;
+                std::vector<piece> player2_pieces;
                 std::vector<player> player_vector;
 				bool capture_flag; /* DONE */
                 bool turn;
@@ -45,7 +46,7 @@ namespace draughts
                 bool check_kernel(std::pair<int, int>, std::pair<int, int>, int); /* DONE */
                 void capture(int, std::pair<int, int>); /* DONE */
                 void check_if_piece_to_king(int, int, int);
-                std::unique_ptr<piece*> get_piece_from_position(int, int); /* DONE */
+                boost::optional<piece&> get_piece_from_position(int, int); /* DONE */
                 void make_move(int, int, int, int, int); /* DONE */
                 void turner(); /* DONE */
                 void add_player(const std::string&); /* DONE */

@@ -27,6 +27,8 @@ vector
 -
 memory
 -
+boost/optional.hpp
+-
 ../model/piece.h
 /Users/Eske/Documents/GitHub/cpp_assignment2/Draughts/src/model/piece.h
 ../model/king.h

@@ -68,10 +68,10 @@ void draughts::model::model::create_tokens(int player_in_game, int plrID)
 	// Create pieces
 	for (int piece = 0; piece < 12; ++piece){
 		if(player_in_game == 1){
-			player1_pieces.push_back(new draughts::model::piece(plrID, token));
+			player1_pieces.push_back(draughts::model::piece(plrID, token));
 		}
 		else{
-			player2_pieces.push_back(new draughts::model::piece(plrID, token));
+			player2_pieces.push_back(draughts::model::piece(plrID, token));
 		}
 	}
 }
@@ -80,37 +80,37 @@ void draughts::model::model::initialise_board(){
 
 	// Player 1
 		// pos_X 1
-		player1_pieces[0]->set_positionXY(std::make_pair(1,2));
-		player1_pieces[1]->set_positionXY(std::make_pair(1,4));
-		player1_pieces[2]->set_positionXY(std::make_pair(1,6));
-		player1_pieces[3]->set_positionXY(std::make_pair(1,8));
+		player1_pieces[0].set_positionXY(std::make_pair(1,2));
+		player1_pieces[1].set_positionXY(std::make_pair(1,4));
+		player1_pieces[2].set_positionXY(std::make_pair(1,6));
+		player1_pieces[3].set_positionXY(std::make_pair(1,8));
 		// pos_X 2
-		player1_pieces[4]->set_positionXY(std::make_pair(2,1));
-		player1_pieces[5]->set_positionXY(std::make_pair(2,3));
-		player1_pieces[6]->set_positionXY(std::make_pair(2,5));
-		player1_pieces[7]->set_positionXY(std::make_pair(2,7));
+		player1_pieces[4].set_positionXY(std::make_pair(2,1));
+		player1_pieces[5].set_positionXY(std::make_pair(2,3));
+		player1_pieces[6].set_positionXY(std::make_pair(2,5));
+		player1_pieces[7].set_positionXY(std::make_pair(2,7));
 		// pos_X 3
-		player1_pieces[8]->set_positionXY(std::make_pair(3,2));
-		player1_pieces[9]->set_positionXY(std::make_pair(3,4));
-		player1_pieces[10]->set_positionXY(std::make_pair(3,6));
-		player1_pieces[11]->set_positionXY(std::make_pair(3,8));
+		player1_pieces[8].set_positionXY(std::make_pair(3,2));
+		player1_pieces[9].set_positionXY(std::make_pair(3,4));
+		player1_pieces[10].set_positionXY(std::make_pair(3,6));
+		player1_pieces[11].set_positionXY(std::make_pair(3,8));
 
 	// Player 2
 		// pos_X 6
-		player2_pieces[0]->set_positionXY(std::make_pair(6,1));
-		player2_pieces[1]->set_positionXY(std::make_pair(6,3));
-		player2_pieces[2]->set_positionXY(std::make_pair(6,5));
-		player2_pieces[3]->set_positionXY(std::make_pair(6,7));
+		player2_pieces[0].set_positionXY(std::make_pair(6,1));
+		player2_pieces[1].set_positionXY(std::make_pair(6,3));
+		player2_pieces[2].set_positionXY(std::make_pair(6,5));
+		player2_pieces[3].set_positionXY(std::make_pair(6,7));
 		// pos_X 7
-		player2_pieces[4]->set_positionXY(std::make_pair(7,2));
-		player2_pieces[5]->set_positionXY(std::make_pair(7,4));
-		player2_pieces[6]->set_positionXY(std::make_pair(7,6));
-		player2_pieces[7]->set_positionXY(std::make_pair(7,8));
+		player2_pieces[4].set_positionXY(std::make_pair(7,2));
+		player2_pieces[5].set_positionXY(std::make_pair(7,4));
+		player2_pieces[6].set_positionXY(std::make_pair(7,6));
+		player2_pieces[7].set_positionXY(std::make_pair(7,8));
 		// pos_X 8
-		player2_pieces[8]->set_positionXY(std::make_pair(8,1));
-		player2_pieces[9]->set_positionXY(std::make_pair(8,3));
-		player2_pieces[10]->set_positionXY(std::make_pair(8,5));
-		player2_pieces[11]->set_positionXY(std::make_pair(8,7));
+		player2_pieces[8].set_positionXY(std::make_pair(8,1));
+		player2_pieces[9].set_positionXY(std::make_pair(8,3));
+		player2_pieces[10].set_positionXY(std::make_pair(8,5));
+		player2_pieces[11].set_positionXY(std::make_pair(8,7));
 }
 
 
@@ -144,8 +144,8 @@ std::string draughts::model::model::get_player_name(int id)
 char draughts::model::model::get_token(int x ,int y)
 {
     auto p_ptr = draughts::model::model::get_piece_from_position(x, y);
-    if (p_ptr != nullptr)
-        return (*p_ptr)->get_token();
+    if (p_ptr)
+        return p_ptr->get_token();
     return ' ';
 }
 
@@ -154,7 +154,7 @@ bool draughts::model::model::validate_move(int playernum,
 {
 
     auto p_ptr = draughts::model::model::get_piece_from_position(start_X, start_Y);
-    if (p_ptr != nullptr && (*p_ptr)->get_ownerID() != playernum)
+    if (p_ptr && p_ptr->get_ownerID() != playernum)
         return false;
     /* TODO: insert rules here
 
@@ -200,7 +200,7 @@ bool draughts::model::model::validate_move(int playernum,
 	/////////// For piece and king ////////////////
 	else if(end==kernel_1 || end==kernel_2){
 		// Is there already a piece on end move
-		if(get_piece_from_position(end.first,end.second)==nullptr){
+		if(!get_piece_from_position(end.first,end.second)){
 			return true;
 		}
 		else{
@@ -217,7 +217,7 @@ bool draughts::model::model::validate_move(int playernum,
 	///////////// Only for king //////////////////
 	else if(end==kernel_5 || end==kernel_6)/* && TODO token==KING?)*/{
 		// Is there already a piece on end move
-		if(get_piece_from_position(end.first,end.second)==nullptr){
+		if(!get_piece_from_position(end.first,end.second)){
 			return true;
 		}
 		else{
@@ -259,12 +259,12 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 		std::pair<int, int> kernel_6 (start_X-1*get_direction(playernum),start_Y+1);
 		std::pair<int, int> kernel_7 (start_X-2*get_direction(playernum),start_Y-2);
 		std::pair<int, int> kernel_8 (start_X-2*get_direction(playernum),start_Y+2);
-	
+
 		auto p_ptr = draughts::model::model::get_piece_from_position(start_X, start_Y);
-	
+
 		/////////// For Piece and King ///////////
 		if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum)
-			&& draughts::model::model::check_kernel(kernel_2, kernel_4, playernum) && typeid(*(*p_ptr)) == typeid(draughts::model::piece()))
+			&& draughts::model::model::check_kernel(kernel_2, kernel_4, playernum) && typeid(*p_ptr) == typeid(draughts::model::piece()))
 		{
 			// prompt user for decision
 			int decision;
@@ -284,7 +284,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				}
 			} while (decision != 1 || decision != 2);
-	
+
 			// make_move according to position
 			if (decision == 1)
 			{
@@ -302,7 +302,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 				&& draughts::model::model::check_kernel(kernel_2, kernel_4, playernum)
 				&& (draughts::model::model::check_kernel(kernel_5, kernel_7, playernum)
 				|| draughts::model::model::check_kernel(kernel_6, kernel_8, playernum))
-				&& typeid(*(*p_ptr)) == typeid(draughts::model::king))
+				&& typeid(*p_ptr) == typeid(draughts::model::king))
 		{
 			// prompt user for decision
 			int decision;
@@ -313,7 +313,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 				std::cout << kernel_3.first << "," << kernel_3.second << std::endl;
 				std::cout << "2 for capture piece 2, end position: ";
 				std::cout << kernel_4.first << "," << kernel_4.second << std::endl;
-	
+
 				if(draughts::model::model::check_kernel(kernel_5, kernel_7, playernum)){
 					std::cout << "3 for capture piece 3, end position: ";
 					std::cout << kernel_5.first << "," << kernel_5.second << std::endl;
@@ -331,7 +331,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				}
 			} while (decision != 1 || decision != 2 || decision != 3);
-	
+
 			// make_move according to position
 			if (decision == 1)
 			{
@@ -344,7 +344,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 				draughts::model::model::valid_for_second_move(playernum, kernel_6.first, kernel_6.second);
 			}
 		}
-		else if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum) && typeid(*(*p_ptr)) == typeid(draughts::model::king))
+		else if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum) && typeid(*p_ptr) == typeid(draughts::model::king))
 		{
 			// forced move to kernel_3
 			std::cout << "forced kernel 3" << std::endl;
@@ -352,7 +352,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 			std::cout << "Automatic capturing successful" << std::endl;
 			draughts::model::model::valid_for_second_move(playernum, kernel_3.first, kernel_3.second);
 		}
-		else if (draughts::model::model::check_kernel(kernel_2, kernel_4, playernum) && typeid(*(*p_ptr)) == typeid(draughts::model::king))
+		else if (draughts::model::model::check_kernel(kernel_2, kernel_4, playernum) && typeid(*p_ptr) == typeid(draughts::model::king))
 		{
 			// forced move to kernel_4
 			std::cout << "forced kernel 4" << std::endl;
@@ -360,7 +360,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 			std::cout << "Automatic capturing successful" << std::endl;
 			draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
 		}
-		else if (draughts::model::model::check_kernel(kernel_5, kernel_7, playernum) && typeid(*(*p_ptr)) == typeid(draughts::model::king))
+		else if (draughts::model::model::check_kernel(kernel_5, kernel_7, playernum) && typeid(*p_ptr) == typeid(draughts::model::king))
 		{
 			// forced move to kernel_5
 			std::cout << "forced kernel 5" << std::endl;
@@ -368,7 +368,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 			std::cout << "Automatic capturing successful" << std::endl;
 			draughts::model::model::valid_for_second_move(playernum, kernel_3.first, kernel_3.second);
 		}
-		else if (draughts::model::model::check_kernel(kernel_6, kernel_8, playernum) && typeid(*(*p_ptr)) == typeid(draughts::model::king))
+		else if (draughts::model::model::check_kernel(kernel_6, kernel_8, playernum) && typeid(*p_ptr) == typeid(draughts::model::king))
 		{
 			// forced move to kernel_6
 			std::cout << "forced kernel 6" << std::endl;
@@ -381,10 +381,10 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 
 bool draughts::model::model::check_kernel(std::pair<int, int> kernel_down, std::pair<int, int> kernel_up, int playernum)
 {
-    if(get_piece_from_position(kernel_up.first,kernel_up.second)==nullptr
+    if(!get_piece_from_position(kernel_up.first,kernel_up.second)
         && !(kernel_up.first < 1 || kernel_up.first > HEIGHT || kernel_up.second < 1 || kernel_up.second > WIDTH)
-        && get_piece_from_position(kernel_down.first,kernel_down.second)!=nullptr
-        && (*get_piece_from_position(kernel_down.first,kernel_down.second))->get_ownerID()!=playernum)
+        && get_piece_from_position(kernel_down.first,kernel_down.second)
+        && get_piece_from_position(kernel_down.first,kernel_down.second)->get_ownerID()!=playernum)
     {
         capture(playernum, kernel_down);
         return true;
@@ -398,9 +398,9 @@ bool draughts::model::model::check_kernel(std::pair<int, int> kernel_down, std::
 void draughts::model::model::capture(int killer_ID, std::pair<int, int> positionRC)
 {
 	capture_flag = true;
-	
+
     auto captured_piece = draughts::model::model::get_piece_from_position(positionRC.first, positionRC.second);
-    if ((*captured_piece)->get_ownerID() != killer_ID)
+    if (captured_piece->get_ownerID() != killer_ID)
     {
         if (killer_ID != player1->get_player_ID())
         {
@@ -423,7 +423,7 @@ void draughts::model::model::check_if_piece_to_king(int player_ID, int pos_X, in
         for (auto it = player1_pieces.begin(); it != player1_pieces.end(); ++it)
         {
             if ((*it) == (*p_ptr))
-                *it = new draughts::model::king(player_ID, (*p_ptr)->get_token(), (*p_ptr)->get_positionXY());
+                *it = draughts::model::king(player_ID, p_ptr->get_token(), p_ptr->get_positionXY());
         }
     }
     else if (player_ID == player2->get_player_ID() && pos_X == 1)
@@ -432,26 +432,25 @@ void draughts::model::model::check_if_piece_to_king(int player_ID, int pos_X, in
         for (auto it = player2_pieces.begin(); it != player2_pieces.end(); ++it)
         {
             if ((*it) == (*p_ptr))
-                *it = new draughts::model::king(player_ID, (*p_ptr)->get_token(), (*p_ptr)->get_positionXY());
+                *it = draughts::model::king(player_ID, p_ptr->get_token(), p_ptr->get_positionXY());
         }
     }
 }
 
-std::unique_ptr<draughts::model::piece*> draughts::model::model::get_piece_from_position(int pos_x, int pos_y)
+boost::optional<draughts::model::piece&> draughts::model::model::get_piece_from_position(int pos_x, int pos_y)
 {
-    std::unique_ptr<draughts::model::piece*> p_ptr(nullptr);
     auto input_positionXY = std::make_pair(pos_x, pos_y);
     for (auto p1_it = player1_pieces.begin(); p1_it != player1_pieces.end(); ++p1_it)
     {
-        if (input_positionXY == (*p1_it)->get_positionXY())
-            p_ptr = std::make_unique<draughts::model::piece*>(*p1_it);
+        if (input_positionXY == p1_it->get_positionXY())
+            return boost::optional<draughts::model::piece&>(*p1_it);
     }
     for (auto p2_it = player2_pieces.begin(); p2_it != player2_pieces.end(); ++p2_it)
     {
-        if (input_positionXY == (*p2_it)->get_positionXY())
-            p_ptr = std::make_unique<draughts::model::piece*>(*p2_it);
+        if (input_positionXY == p2_it->get_positionXY())
+            return boost::optional<draughts::model::piece&>(*p2_it);
     }
-    return p_ptr;
+    return boost::optional<draughts::model::piece&>();
 }
 
 void draughts::model::model::make_move(int playernum,
@@ -459,9 +458,9 @@ void draughts::model::model::make_move(int playernum,
 {
     auto p_ptr = draughts::model::model::get_piece_from_position(start_X, start_Y);
     //std::cout << "before positionXY: " << (*p_ptr)->get_positionX() << (*p_ptr)->get_positionY() << std::endl;
-    if (p_ptr != nullptr)
+    if (p_ptr)
     {
-        (*p_ptr)->set_positionXY(std::make_pair(end_row, end_col));
+        p_ptr->set_positionXY(std::make_pair(end_row, end_col));
         draughts::model::model::check_if_piece_to_king(playernum, end_row, end_col);
     }
     else
