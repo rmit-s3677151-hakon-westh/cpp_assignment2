@@ -26,3 +26,4 @@ Draughts/CMakeFiles/3.9.2/CompilerIdCXX/CMakeCXXCompilerId.cpp
 *.out
 Draughts/CMakeFiles/3.9.2/CompilerIdC/CMakeCCompilerId.c
 *.bin
+*.plist

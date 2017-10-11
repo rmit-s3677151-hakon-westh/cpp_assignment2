@@ -12,7 +12,6 @@
 #include "player.h"
 #include "piece.h"
 #include "king.h"
-#include "../direction.h"
 
 #pragma once
 

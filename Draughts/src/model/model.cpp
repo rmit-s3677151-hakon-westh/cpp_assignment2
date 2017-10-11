@@ -264,7 +264,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 
 		/////////// For Piece and King ///////////
 		if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum)
-			&& draughts::model::model::check_kernel(kernel_2, kernel_4, playernum) && typeid(*p_ptr) == typeid(draughts::model::piece()))
+			&& draughts::model::model::check_kernel(kernel_2, kernel_4, playernum) && typeid(*p_ptr) == typeid(draughts::model::piece))
 		{
 			// prompt user for decision
 			int decision;
