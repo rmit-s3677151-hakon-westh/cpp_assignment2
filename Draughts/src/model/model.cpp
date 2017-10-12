@@ -116,10 +116,11 @@ void draughts::model::model::initialise_board(){
 
 bool draughts::model::model::check_winner()
 {
-    if (player1->get_player_score() == 12 || player2->get_player_score() == 12)
+    if (player1->get_player_score() == 12 || player2->get_player_score() == 12
+        || !has_a_valid_point(player1->get_player_ID()) || !has_a_valid_point(player2->get_player_ID()))
     {
         std::string winner;
-        if (player1->get_player_score() == 12)
+        if (player1->get_player_score() == 12 || !has_a_valid_point(player2->get_player_ID()))
             winner = player1->get_player_name();
         else
             winner = player2->get_player_name();
@@ -150,7 +151,7 @@ char draughts::model::model::get_token(int x ,int y)
 }
 
 bool draughts::model::model::validate_move(int playernum,
-    int start_X, int start_Y, int end_row, int end_col)
+    int start_X, int start_Y, int end_row, int end_col, bool should_print)
 {
 
     auto p_ptr = draughts::model::model::get_piece_from_position(start_X, start_Y);
@@ -190,7 +191,8 @@ bool draughts::model::model::validate_move(int playernum,
 
 	// Does move exceed board limits?
 	if(end.first < 1 || end.first > HEIGHT || end.second < 1 || end.second > WIDTH){
-		std::cout << "Move exceeded board limits" << std::endl;
+        if (should_print)
+		      std::cout << "Move exceeded board limits" << std::endl;
 		return false;
 	}
 	// Is move on a kernel?
@@ -202,7 +204,8 @@ bool draughts::model::model::validate_move(int playernum,
 			return true;
 		else
         {
-			std::cout << "Invalid move" << std::endl;
+            if (should_print)
+			         std::cout << "Invalid move" << std::endl;
 			return false;
 		}
 	}
@@ -223,7 +226,8 @@ bool draughts::model::model::validate_move(int playernum,
 		}
 		else
         {
-			std::cout << "Invalid move" << std::endl;
+            if (should_print)
+			         std::cout << "Invalid move" << std::endl;
 			return false;
 		}
 	}
@@ -237,7 +241,8 @@ bool draughts::model::model::validate_move(int playernum,
 	}
 	else
     {
-		std::cout << "Invalid move" << std::endl;
+        if (should_print)
+		      std::cout << "Invalid move" << std::endl;
 		return false;
 	}
 }
@@ -248,6 +253,47 @@ int draughts::model::model::get_direction(int playernum)
 		return 1;
 	else 										// player 2
 		return -1;
+}
+
+bool draughts::model::model::has_a_valid_point(int id)
+{
+    // tjek hvilken spiller
+    // for spillers pieces tjek om de kan flytte
+    //  - udregn kernels
+    //  - tjek validate_move for hvert piece's position og udregnede kernels
+    // hvis et af piecesne kan flytte så return true
+    // ellers return false
+    auto it = player1_pieces.begin();
+    auto it_stop = player1_pieces.end();
+    if (id == player2->get_player_ID())
+    {
+        it = player2_pieces.begin();
+        it_stop = player2_pieces.end();
+    }
+    for (it; it != it_stop; ++it)
+    {
+        auto kernels = get_kernels(id, it->get_positionX(), it->get_positionY());
+        for (auto k_it = kernels.begin(); k_it != kernels.end(); ++k_it)
+        {
+            if (validate_move(id, it->get_positionX(), it->get_positionX(), k_it->first, k_it->second, false))
+                return false;
+        }
+    }
+    return true;
+}
+
+std::vector<std::pair<int, int>> draughts::model::model::get_kernels(int id, int start_X, int start_Y)
+{
+    std::vector<std::pair<int, int>> kernels;
+    kernels.push_back(std::make_pair(start_X+1*get_direction(id),start_Y-1));
+    kernels.push_back(std::make_pair(start_X+1*get_direction(id),start_Y+1));
+    kernels.push_back(std::make_pair(start_X+2*get_direction(id),start_Y-2));
+    kernels.push_back(std::make_pair(start_X+2*get_direction(id),start_Y+2));
+    kernels.push_back(std::make_pair(start_X-1*get_direction(id),start_Y-1));
+    kernels.push_back(std::make_pair(start_X-1*get_direction(id),start_Y+1));
+    kernels.push_back(std::make_pair(start_X-2*get_direction(id),start_Y-2));
+    kernels.push_back(std::make_pair(start_X-2*get_direction(id),start_Y+2));
+    return kernels;
 }
 
 void draughts::model::model::valid_for_second_move(int playernum, int start_X, int start_Y)

@@ -40,7 +40,9 @@ namespace draughts
                 void create_tokens(int, int); /* DONE */
                 void initialise_board(); /* DONE */
                 char get_token(int,int); /* DONE */
-                bool validate_move(int, int, int, int, int); /* DONE */
+                bool validate_move(int, int, int, int, int, bool); /* DONE */
+                bool has_a_valid_point(int);
+                std::vector<std::pair<int, int>> get_kernels(int, int, int);
                 void valid_for_second_move(int, int, int); /* DONE */
                 bool check_kernel(std::pair<int, int>, std::pair<int, int>, int); /* DONE */
                 void capture(int, std::pair<int, int>); /* DONE */
