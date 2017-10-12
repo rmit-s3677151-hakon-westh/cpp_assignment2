@@ -150,33 +150,6 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/Draughts.dir/build.make CMakeFiles/Draughts.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/model/king.o: src/model/king.cpp.o
-
-.PHONY : src/model/king.o
-
-# target to build an object file
-src/model/king.cpp.o:
-	$(MAKE) -f CMakeFiles/Draughts.dir/build.make CMakeFiles/Draughts.dir/src/model/king.cpp.o
-.PHONY : src/model/king.cpp.o
-
-src/model/king.i: src/model/king.cpp.i
-
-.PHONY : src/model/king.i
-
-# target to preprocess a source file
-src/model/king.cpp.i:
-	$(MAKE) -f CMakeFiles/Draughts.dir/build.make CMakeFiles/Draughts.dir/src/model/king.cpp.i
-.PHONY : src/model/king.cpp.i
-
-src/model/king.s: src/model/king.cpp.s
-
-.PHONY : src/model/king.s
-
-# target to generate assembly for a file
-src/model/king.cpp.s:
-	$(MAKE) -f CMakeFiles/Draughts.dir/build.make CMakeFiles/Draughts.dir/src/model/king.cpp.s
-.PHONY : src/model/king.cpp.s
-
 src/model/model.o: src/model/model.cpp.o
 
 .PHONY : src/model/model.o
@@ -513,9 +486,6 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/model/king.o"
-	@echo "... src/model/king.i"
-	@echo "... src/model/king.s"
 	@echo "... src/model/model.o"
 	@echo "... src/model/model.i"
 	@echo "... src/model/model.s"

@@ -33,7 +33,7 @@ void draughts::ncview::game_window::activate(void)
                 move_coords.first.second, move_coords.second.first,
                 move_coords.second.second)))
             {
-                std::cerr << "Move not valid, try again you pleb..." << std::endl;
+                std::cerr << "Move not valid, try again..." << std::endl;
                 move_coords = get_move_input();
             }
             themodel->make_move(playernum, move_coords.first.first,

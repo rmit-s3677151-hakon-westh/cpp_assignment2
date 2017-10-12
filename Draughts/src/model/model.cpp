@@ -167,13 +167,10 @@ bool draughts::model::model::validate_move(int playernum,
 	// kongen kan rykke skråtfremad og skråttilbage
 	*/
 
-	//Choose valid (get_direction(playernum))ection for player depending on player 1 or 2
-    /* TODO lav en get_direction metode.... */
-
 	std::pair<int, int> end (end_row,end_col);
-    /* * * * * * * * * * */
+    /********************/
     /* Kernel structure */
-    /* * * * * * * * * * */
+    /********************/
     // [3]       [4]    <- up
     //    [1]  [2]      <- down
     //       [0]
@@ -198,12 +195,13 @@ bool draughts::model::model::validate_move(int playernum,
 	}
 	// Is move on a kernel?
 	/////////// For piece and king ////////////////
-	else if(end==kernel_1 || end==kernel_2){
+	else if (end==kernel_1 || end==kernel_2)
+    {
 		// Is there already a piece on end move
-		if(!get_piece_from_position(end.first,end.second)){
+		if (!get_piece_from_position(end.first,end.second))
 			return true;
-		}
-		else{
+		else
+        {
 			std::cout << "Invalid move" << std::endl;
 			return false;
 		}
@@ -215,42 +213,47 @@ bool draughts::model::model::validate_move(int playernum,
         return draughts::model::model::check_kernel(kernel_2, kernel_4, playernum);
 	}
 	///////////// Only for king //////////////////
-	else if(end==kernel_5 || end==kernel_6)/* && TODO token==KING?)*/{
+	else if ((end==kernel_5 || end==kernel_6)
+            && typeid(*p_ptr) == typeid(draughts::model::king))
+    {
 		// Is there already a piece on end move
-		if(!get_piece_from_position(end.first,end.second)){
+		if(!get_piece_from_position(end.first,end.second))
+        {
 			return true;
 		}
-		else{
+		else
+        {
 			std::cout << "Invalid move" << std::endl;
 			return false;
 		}
 	}
-	else if(end==kernel_7)/* && TODO token==KING?)*/{
+	else if (end==kernel_7 && typeid(*p_ptr) == typeid(draughts::model::king))
+    {
         return draughts::model::model::check_kernel(kernel_5, kernel_7, playernum);
 	}
-	else if(end==kernel_8)/* && TODO token==KING?)*/{
+	else if (end==kernel_8 && typeid(*p_ptr) == typeid(draughts::model::king))
+    {
         return draughts::model::model::check_kernel(kernel_6, kernel_8, playernum);
 	}
-	else{
+	else
+    {
 		std::cout << "Invalid move" << std::endl;
 		return false;
 	}
-
 }
 
 int draughts::model::model::get_direction(int playernum)
 {
-	if(player1->get_player_ID() == playernum){ 	// player 1
+	if (player1->get_player_ID() == playernum) 	// player 1
 		return 1;
-	}
-	else{ 										// player 2
+	else 										// player 2
 		return -1;
-	}
 }
 
 void draughts::model::model::valid_for_second_move(int playernum, int start_X, int start_Y)
 {
-	if(capture_flag){
+	if (capture_flag)
+    {
 		std::pair<int, int> kernel_1 (start_X+1*get_direction(playernum),start_Y-1);
 		std::pair<int, int> kernel_2 (start_X+1*get_direction(playernum),start_Y+1);
 		std::pair<int, int> kernel_3 (start_X+2*get_direction(playernum),start_Y-2);
@@ -264,21 +267,23 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 
 		/////////// For Piece and King ///////////
 		if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum)
-			&& draughts::model::model::check_kernel(kernel_2, kernel_4, playernum) && typeid(*p_ptr) == typeid(draughts::model::piece))
+			&& draughts::model::model::check_kernel(kernel_2, kernel_4, playernum)
+            && typeid(*p_ptr) == typeid(draughts::model::piece))
 		{
 			// prompt user for decision
 			int decision;
 			do
 			{
-				std::cout << "How about you make a decision you dumb fuck?" << std::endl;
+				std::cout << "How about you make a decision?" << std::endl;
 				std::cout << "1 for capture piece 1, end position: ";
 				std::cout << kernel_3.first << "," << kernel_3.second << std::endl;
 				std::cout << "2 for capture piece 2, end position: ";
 				std::cout << kernel_4.first << "," << kernel_4.second << std::endl;
 				std::cout << "Enter decision: ";
-				if (std::cin >> decision) {
+				if (std::cin >> decision)
 					break;
-				} else {
+                else
+                {
 					std::cout << "Please enter 1 or 2: " << std::endl;
 					std::cin.clear();
 					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -308,7 +313,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 			int decision;
 			do
 			{
-				std::cout << "How about you make a decision you dumb fuck?" << std::endl;
+				std::cout << "How about you make a decision?" << std::endl;
 				std::cout << "1 for capture piece 1, end position: ";
 				std::cout << kernel_3.first << "," << kernel_3.second << std::endl;
 				std::cout << "2 for capture piece 2, end position: ";
@@ -384,12 +389,13 @@ bool draughts::model::model::check_kernel(std::pair<int, int> kernel_down, std::
     if(!get_piece_from_position(kernel_up.first,kernel_up.second)
         && !(kernel_up.first < 1 || kernel_up.first > HEIGHT || kernel_up.second < 1 || kernel_up.second > WIDTH)
         && get_piece_from_position(kernel_down.first,kernel_down.second)
-        && get_piece_from_position(kernel_down.first,kernel_down.second)->get_ownerID()!=playernum)
+        && get_piece_from_position(kernel_down.first,kernel_down.second)->get_ownerID() != playernum)
     {
         capture(playernum, kernel_down);
         return true;
     }
-    else{
+    else
+    {
         // TODO husk at giv besked i validate_move std::cout << "Invalid move" << std::endl;
         return false;
     }
