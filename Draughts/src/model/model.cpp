@@ -296,7 +296,7 @@ std::vector<std::pair<int, int>> draughts::model::model::get_kernels(int id, int
     return kernels;
 }
 
-void draughts::model::model::valid_for_second_move(int playernum, int start_X, int start_Y)
+bool draughts::model::model::valid_for_second_move(int playernum, int start_X, int start_Y)
 {
 	if (capture_flag)
     {
@@ -347,6 +347,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 				draughts::model::model::make_move(playernum, start_X, start_Y, kernel_4.first, kernel_4.second);
 				draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
 			}
+            return true;
 		}
 		/////////// Only for King ///////////
 		else if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum)
@@ -394,6 +395,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 				draughts::model::model::make_move(playernum, start_X, start_Y, kernel_6.first, kernel_6.second);
 				draughts::model::model::valid_for_second_move(playernum, kernel_6.first, kernel_6.second);
 			}
+            return true;
 		}
 		else if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum) && typeid(*p_ptr) == typeid(draughts::model::king))
 		{
@@ -402,6 +404,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 			draughts::model::model::make_move(playernum, start_X, start_Y, kernel_3.first, kernel_3.second);
 			std::cout << "Automatic capturing successful" << std::endl;
 			draughts::model::model::valid_for_second_move(playernum, kernel_3.first, kernel_3.second);
+            return true;
 		}
 		else if (draughts::model::model::check_kernel(kernel_2, kernel_4, playernum) && typeid(*p_ptr) == typeid(draughts::model::king))
 		{
@@ -410,6 +413,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 			draughts::model::model::make_move(playernum, start_X, start_Y, kernel_4.first, kernel_4.second);
 			std::cout << "Automatic capturing successful" << std::endl;
 			draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
+            return true;
 		}
 		else if (draughts::model::model::check_kernel(kernel_5, kernel_7, playernum) && typeid(*p_ptr) == typeid(draughts::model::king))
 		{
@@ -418,6 +422,7 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 			draughts::model::model::make_move(playernum, start_X, start_Y, kernel_3.first, kernel_3.second);
 			std::cout << "Automatic capturing successful" << std::endl;
 			draughts::model::model::valid_for_second_move(playernum, kernel_3.first, kernel_3.second);
+            return true;
 		}
 		else if (draughts::model::model::check_kernel(kernel_6, kernel_8, playernum) && typeid(*p_ptr) == typeid(draughts::model::king))
 		{
@@ -426,8 +431,10 @@ void draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 			draughts::model::model::make_move(playernum, start_X, start_Y, kernel_4.first, kernel_4.second);
 			std::cout << "Automatic capturing successful" << std::endl;
 			draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
+            return true;
 		}
 	}
+    return false;
 }
 
 bool draughts::model::model::check_kernel(std::pair<int, int> kernel_down, std::pair<int, int> kernel_up, int playernum)

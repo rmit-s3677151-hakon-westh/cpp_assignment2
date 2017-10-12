@@ -26,7 +26,6 @@ void draughts::ncview::game_window::activate(void)
         }
         try
         {
-            /* TODO does this really work??????? */
             std::pair<std::pair<int,int>,std::pair<int,int>> move_coords;
             move_coords = get_move_input();
             while(!(themodel->validate_move(playernum, move_coords.first.first,
@@ -38,8 +37,8 @@ void draughts::ncview::game_window::activate(void)
             themodel->make_move(playernum, move_coords.first.first,
                 move_coords.first.second, move_coords.second.first,
                 move_coords.second.second);
-            //display_board();
-            themodel->valid_for_second_move(playernum, move_coords.second.first, move_coords.second.second);
+            if(themodel->valid_for_second_move(playernum, move_coords.second.first, move_coords.second.second))
+                display_board();
             if (themodel->check_winner())
                 return;
             themodel->turner();
