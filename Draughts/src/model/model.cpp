@@ -97,6 +97,10 @@ void draughts::model::model::initialise_board(){
 
 	// Player 2
 		// pos_X 6
+        player2_pieces[0].set_positionXY(std::make_pair(4,5));
+        player2_pieces[1].set_positionXY(std::make_pair(6,5));
+        player2_pieces[2].set_positionXY(std::make_pair(6,7));
+        /*
 		player2_pieces[0].set_positionXY(std::make_pair(6,1));
 		player2_pieces[1].set_positionXY(std::make_pair(6,3));
 		player2_pieces[2].set_positionXY(std::make_pair(6,5));
@@ -110,7 +114,7 @@ void draughts::model::model::initialise_board(){
 		player2_pieces[8].set_positionXY(std::make_pair(8,1));
 		player2_pieces[9].set_positionXY(std::make_pair(8,3));
 		player2_pieces[10].set_positionXY(std::make_pair(8,5));
-		player2_pieces[11].set_positionXY(std::make_pair(8,7));
+		player2_pieces[11].set_positionXY(std::make_pair(8,7));*/
 }
 
 
@@ -209,11 +213,13 @@ bool draughts::model::model::validate_move(int playernum,
 			return false;
 		}
 	}
-	else if(end==kernel_3){
-        return draughts::model::model::check_kernel(kernel_1, kernel_3, playernum);
+	else if(end==kernel_3)
+    {
+        return draughts::model::model::check_kernel(kernel_1, kernel_3, playernum, true);
 	}
-	else if(end==kernel_4){
-        return draughts::model::model::check_kernel(kernel_2, kernel_4, playernum);
+	else if(end==kernel_4)
+    {
+        return draughts::model::model::check_kernel(kernel_2, kernel_4, playernum, true);
 	}
 	///////////// Only for king //////////////////
 	else if ((end==kernel_5 || end==kernel_6)
@@ -233,11 +239,11 @@ bool draughts::model::model::validate_move(int playernum,
 	}
 	else if (end==kernel_7 && typeid(*p_ptr) == typeid(draughts::model::king))
     {
-        return draughts::model::model::check_kernel(kernel_5, kernel_7, playernum);
+        return draughts::model::model::check_kernel(kernel_5, kernel_7, playernum, true);
 	}
 	else if (end==kernel_8 && typeid(*p_ptr) == typeid(draughts::model::king))
     {
-        return draughts::model::model::check_kernel(kernel_6, kernel_8, playernum);
+        return draughts::model::model::check_kernel(kernel_6, kernel_8, playernum, true);
 	}
 	else
     {
@@ -312,8 +318,8 @@ bool draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 		auto p_ptr = draughts::model::model::get_piece_from_position(start_X, start_Y);
 
 		/////////// For Piece and King ///////////
-		if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum)
-			&& draughts::model::model::check_kernel(kernel_2, kernel_4, playernum)
+		if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum, false)
+			&& draughts::model::model::check_kernel(kernel_2, kernel_4, playernum, false)
             && typeid(*p_ptr) == typeid(draughts::model::piece))
 		{
 			// prompt user for decision
@@ -339,21 +345,23 @@ bool draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 			// make_move according to position
 			if (decision == 1)
 			{
+                capture(playernum, kernel_1);
 				draughts::model::model::make_move(playernum, start_X, start_Y, kernel_3.first, kernel_3.second);
 				draughts::model::model::valid_for_second_move(playernum, kernel_3.first, kernel_3.second);
 			}
 			else
 			{
+                capture(playernum, kernel_2);
 				draughts::model::model::make_move(playernum, start_X, start_Y, kernel_4.first, kernel_4.second);
 				draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
 			}
             return true;
 		}
 		/////////// Only for King ///////////
-		else if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum)
-				&& draughts::model::model::check_kernel(kernel_2, kernel_4, playernum)
-				&& (draughts::model::model::check_kernel(kernel_5, kernel_7, playernum)
-				|| draughts::model::model::check_kernel(kernel_6, kernel_8, playernum))
+		else if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum, false)
+				&& draughts::model::model::check_kernel(kernel_2, kernel_4, playernum, false)
+				&& (draughts::model::model::check_kernel(kernel_5, kernel_7, playernum, false)
+				|| draughts::model::model::check_kernel(kernel_6, kernel_8, playernum, false))
 				&& typeid(*p_ptr) == typeid(draughts::model::king))
 		{
 			// prompt user for decision
@@ -366,18 +374,22 @@ bool draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 				std::cout << "2 for capture piece 2, end position: ";
 				std::cout << kernel_4.first << "," << kernel_4.second << std::endl;
 
-				if(draughts::model::model::check_kernel(kernel_5, kernel_7, playernum)){
+				if (draughts::model::model::check_kernel(kernel_5, kernel_7, playernum, false))
+                {
 					std::cout << "3 for capture piece 3, end position: ";
-					std::cout << kernel_5.first << "," << kernel_5.second << std::endl;
+					std::cout << kernel_7.first << "," << kernel_7.second << std::endl;
 				}
-				else if(draughts::model::model::check_kernel(kernel_6, kernel_8, playernum)){
+				else if (draughts::model::model::check_kernel(kernel_6, kernel_8, playernum, false))
+                {
 					std::cout << "3 for capture piece 3, end position: ";
-					std::cout << kernel_6.first << "," << kernel_6.second << std::endl;
+					std::cout << kernel_8.first << "," << kernel_8.second << std::endl;
 				}
 				std::cout << "Enter decision: ";
 				if (std::cin >> decision) {
 					break;
-				} else {
+				}
+                else
+                {
 					std::cout << "Please enter 1, 2 or 3: " << std::endl;
 					std::cin.clear();
 					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -387,17 +399,34 @@ bool draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 			// make_move according to position
 			if (decision == 1)
 			{
-				draughts::model::model::make_move(playernum, start_X, start_Y, kernel_5.first, kernel_5.second);
-				draughts::model::model::valid_for_second_move(playernum, kernel_5.first, kernel_5.second);
+                capture(playernum, kernel_1);
+				draughts::model::model::make_move(playernum, start_X, start_Y, kernel_3.first, kernel_3.second);
+				draughts::model::model::valid_for_second_move(playernum, kernel_3.first, kernel_3.second);
 			}
-			else
+			else if (decision == 2)
 			{
-				draughts::model::model::make_move(playernum, start_X, start_Y, kernel_6.first, kernel_6.second);
-				draughts::model::model::valid_for_second_move(playernum, kernel_6.first, kernel_6.second);
+                capture(playernum, kernel_2);
+				draughts::model::model::make_move(playernum, start_X, start_Y, kernel_4.first, kernel_4.second);
+				draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
 			}
+            else
+            {
+                if (draughts::model::model::check_kernel(kernel_5, kernel_7, playernum, false))
+                {
+                    capture(playernum, kernel_5);
+    				draughts::model::model::make_move(playernum, start_X, start_Y, kernel_7.first, kernel_7.second);
+    				draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
+                }
+                else
+                {
+                    capture(playernum, kernel_6);
+    				draughts::model::model::make_move(playernum, start_X, start_Y, kernel_8.first, kernel_8.second);
+    				draughts::model::model::valid_for_second_move(playernum, kernel_8.first, kernel_8.second);
+                }
+            }
             return true;
 		}
-		else if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum) && typeid(*p_ptr) == typeid(draughts::model::king))
+		else if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum, true) && typeid(*p_ptr) == typeid(draughts::model::king))
 		{
 			// forced move to kernel_3
 			std::cout << "forced kernel 3" << std::endl;
@@ -406,7 +435,7 @@ bool draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 			draughts::model::model::valid_for_second_move(playernum, kernel_3.first, kernel_3.second);
             return true;
 		}
-		else if (draughts::model::model::check_kernel(kernel_2, kernel_4, playernum) && typeid(*p_ptr) == typeid(draughts::model::king))
+		else if (draughts::model::model::check_kernel(kernel_2, kernel_4, playernum, true) && typeid(*p_ptr) == typeid(draughts::model::king))
 		{
 			// forced move to kernel_4
 			std::cout << "forced kernel 4" << std::endl;
@@ -415,7 +444,7 @@ bool draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 			draughts::model::model::valid_for_second_move(playernum, kernel_4.first, kernel_4.second);
             return true;
 		}
-		else if (draughts::model::model::check_kernel(kernel_5, kernel_7, playernum) && typeid(*p_ptr) == typeid(draughts::model::king))
+		else if (draughts::model::model::check_kernel(kernel_5, kernel_7, playernum, true) && typeid(*p_ptr) == typeid(draughts::model::king))
 		{
 			// forced move to kernel_5
 			std::cout << "forced kernel 5" << std::endl;
@@ -424,7 +453,7 @@ bool draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 			draughts::model::model::valid_for_second_move(playernum, kernel_3.first, kernel_3.second);
             return true;
 		}
-		else if (draughts::model::model::check_kernel(kernel_6, kernel_8, playernum) && typeid(*p_ptr) == typeid(draughts::model::king))
+		else if (draughts::model::model::check_kernel(kernel_6, kernel_8, playernum, true) && typeid(*p_ptr) == typeid(draughts::model::king))
 		{
 			// forced move to kernel_6
 			std::cout << "forced kernel 6" << std::endl;
@@ -437,14 +466,16 @@ bool draughts::model::model::valid_for_second_move(int playernum, int start_X, i
     return false;
 }
 
-bool draughts::model::model::check_kernel(std::pair<int, int> kernel_down, std::pair<int, int> kernel_up, int playernum)
+bool draughts::model::model::check_kernel(std::pair<int, int> kernel_down,
+    std::pair<int, int> kernel_up, int playernum, bool should_capture)
 {
     if(!get_piece_from_position(kernel_up.first,kernel_up.second)
         && !(kernel_up.first < 1 || kernel_up.first > HEIGHT || kernel_up.second < 1 || kernel_up.second > WIDTH)
         && get_piece_from_position(kernel_down.first,kernel_down.second)
         && get_piece_from_position(kernel_down.first,kernel_down.second)->get_ownerID() != playernum)
     {
-        capture(playernum, kernel_down);
+        if (should_capture)
+            capture(playernum, kernel_down);
         return true;
     }
     else

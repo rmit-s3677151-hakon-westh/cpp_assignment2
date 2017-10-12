@@ -44,7 +44,7 @@ namespace draughts
                 bool has_a_valid_point(int);
                 std::vector<std::pair<int, int>> get_kernels(int, int, int);
                 bool valid_for_second_move(int, int, int); /* DONE */
-                bool check_kernel(std::pair<int, int>, std::pair<int, int>, int); /* DONE */
+                bool check_kernel(std::pair<int, int>, std::pair<int, int>, int, bool); /* DONE */
                 void capture(int, std::pair<int, int>); /* DONE */
                 void check_if_piece_to_king(int, int, int);
                 boost::optional<piece&> get_piece_from_position(int, int); /* DONE */
