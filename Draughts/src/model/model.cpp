@@ -116,16 +116,16 @@ void draughts::model::model::initialise_board(){
 
 bool draughts::model::model::check_winner()
 {
-    if (player1->get_player_score() == 12 || player2->get_player_score() == 12
+    if (player1_pieces.empty() || player2_pieces.empty()
         || !has_a_valid_point(player1->get_player_ID()) || !has_a_valid_point(player2->get_player_ID()))
     {
         std::string winner;
-        if (player1->get_player_score() == 12 || !has_a_valid_point(player2->get_player_ID()))
+        if (player2_pieces.empty() || !has_a_valid_point(player2->get_player_ID()))
             winner = player1->get_player_name();
         else
             winner = player2->get_player_name();
 
-        std::cout << "Congratulations to " << winner << " you beat the shit of your opponent!" << std::endl;
+        std::cout << "Congratulations " << winner << " you won!" << std::endl;
         std::cout << "----------------" << std::endl;
         return true;
     }

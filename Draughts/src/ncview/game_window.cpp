@@ -37,8 +37,7 @@ void draughts::ncview::game_window::activate(void)
             themodel->make_move(playernum, move_coords.first.first,
                 move_coords.first.second, move_coords.second.first,
                 move_coords.second.second);
-            if(themodel->valid_for_second_move(playernum, move_coords.second.first, move_coords.second.second))
-                display_board();
+            themodel->valid_for_second_move(playernum, move_coords.second.first, move_coords.second.second);
             if (themodel->check_winner())
                 return;
             themodel->turner();

@@ -56,7 +56,7 @@ namespace draughts
                 int get_current_player(void); /* DONE */
                 std::string get_player_name(int); /* DONE */
                 std::map<int, std::string> get_player_list(void) const; /* DONE */
-                bool check_winner(); /* IN PROGRESS */
+                bool check_winner(); /* DONE */
                 int get_width(); /* DONE */
                 int get_height(); /* DONE */
                 static model * get_instance(void); /* DONE */
