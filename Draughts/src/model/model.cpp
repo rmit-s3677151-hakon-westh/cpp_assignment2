@@ -29,6 +29,7 @@ void draughts::model::model::start_game(int plr1, int plr2)
 	if(!draughts::model::model::player_exists(plr1) ||
 		!draughts::model::model::player_exists(plr2))
 	{
+		// If player 1 or player is not in roster promt user
 		if(!draughts::model::model::player_exists(plr1)){
 			std::cerr << plr1 << " ID do not exist in the roster" << std::endl;
 		}
@@ -77,44 +78,39 @@ void draughts::model::model::create_tokens(int player_in_game, int plrID)
 }
 
 void draughts::model::model::initialise_board(){
-
 	// Player 1
-		// pos_X 1
+		// row 1
 		player1_pieces[0].set_positionXY(std::make_pair(1,2));
 		player1_pieces[1].set_positionXY(std::make_pair(1,4));
 		player1_pieces[2].set_positionXY(std::make_pair(1,6));
 		player1_pieces[3].set_positionXY(std::make_pair(1,8));
-		// pos_X 2
+		// row 2
 		player1_pieces[4].set_positionXY(std::make_pair(2,1));
 		player1_pieces[5].set_positionXY(std::make_pair(2,3));
 		player1_pieces[6].set_positionXY(std::make_pair(2,5));
 		player1_pieces[7].set_positionXY(std::make_pair(2,7));
-		// pos_X 3
+		// row 3
 		player1_pieces[8].set_positionXY(std::make_pair(3,2));
 		player1_pieces[9].set_positionXY(std::make_pair(3,4));
 		player1_pieces[10].set_positionXY(std::make_pair(3,6));
 		player1_pieces[11].set_positionXY(std::make_pair(3,8));
 
 	// Player 2
-		// pos_X 6
-        player2_pieces[0].set_positionXY(std::make_pair(4,5));
-        player2_pieces[1].set_positionXY(std::make_pair(6,5));
-        player2_pieces[2].set_positionXY(std::make_pair(6,7));
-        /*
+		// row 6
 		player2_pieces[0].set_positionXY(std::make_pair(6,1));
 		player2_pieces[1].set_positionXY(std::make_pair(6,3));
 		player2_pieces[2].set_positionXY(std::make_pair(6,5));
 		player2_pieces[3].set_positionXY(std::make_pair(6,7));
-		// pos_X 7
+		// row 7
 		player2_pieces[4].set_positionXY(std::make_pair(7,2));
 		player2_pieces[5].set_positionXY(std::make_pair(7,4));
 		player2_pieces[6].set_positionXY(std::make_pair(7,6));
 		player2_pieces[7].set_positionXY(std::make_pair(7,8));
-		// pos_X 8
+		// row 8
 		player2_pieces[8].set_positionXY(std::make_pair(8,1));
 		player2_pieces[9].set_positionXY(std::make_pair(8,3));
 		player2_pieces[10].set_positionXY(std::make_pair(8,5));
-		player2_pieces[11].set_positionXY(std::make_pair(8,7));*/
+		player2_pieces[11].set_positionXY(std::make_pair(8,7));
 }
 
 
@@ -160,18 +156,7 @@ bool draughts::model::model::validate_move(int playernum,
 
     auto p_ptr = draughts::model::model::get_piece_from_position(start_X, start_Y);
     if (p_ptr && p_ptr->get_ownerID() != playernum)
-        return false;
-    /* TODO: insert rules here
-
-	// piece kan kunne rykke skråt fremad
-	// piece1 conquer piece2 ved at hoppe skråtover
-		// hvis 1piece kan conquer en anden piece3 efterfølgende så må han det
-		(Note det er ligemeget om det er samme retning eller om det er en anden retning=)
-		(dette skal evt. være i checker metode)
-	// hvis piece lander på den modsatte ende række så bliver det en konge
-	// kongen kan rykke skråtfremad og skråttilbage
-	*/
-
+    
 	std::pair<int, int> end (end_row,end_col);
     /********************/
     /* Kernel structure */
@@ -182,7 +167,8 @@ bool draughts::model::model::validate_move(int playernum,
     //    [5]  [6]		<- down
     // [7]       [8]	<- up
 
-
+	
+	// Defining kernel structure
 	std::pair<int, int> kernel_1 (start_X+1*get_direction(playernum),start_Y-1);
 	std::pair<int, int> kernel_2 (start_X+1*get_direction(playernum),start_Y+1);
 	std::pair<int, int> kernel_3 (start_X+2*get_direction(playernum),start_Y-2);
@@ -199,7 +185,7 @@ bool draughts::model::model::validate_move(int playernum,
 		      std::cout << "Move exceeded board limits" << std::endl;
 		return false;
 	}
-	// Is move on a kernel?
+	// Is move position on a kernel?
 	/////////// For piece and king ////////////////
 	else if (end==kernel_1 || end==kernel_2)
     {
@@ -263,7 +249,7 @@ int draughts::model::model::get_direction(int playernum)
 
 bool draughts::model::model::has_a_valid_point(int id)
 {
-    // tjek hvilken spiller
+    // tjek hvilken spiller TODO
     // for spillers pieces tjek om de kan flytte
     //  - udregn kernels
     //  - tjek validate_move for hvert piece's position og udregnede kernels
@@ -290,6 +276,7 @@ bool draughts::model::model::has_a_valid_point(int id)
 
 std::vector<std::pair<int, int>> draughts::model::model::get_kernels(int id, int start_X, int start_Y)
 {
+	// Defining kernel structure
     std::vector<std::pair<int, int>> kernels;
     kernels.push_back(std::make_pair(start_X+1*get_direction(id),start_Y-1));
     kernels.push_back(std::make_pair(start_X+1*get_direction(id),start_Y+1));
@@ -304,8 +291,10 @@ std::vector<std::pair<int, int>> draughts::model::model::get_kernels(int id, int
 
 bool draughts::model::model::valid_for_second_move(int playernum, int start_X, int start_Y)
 {
+	// If player have captured in round then check whether he can make a second move
 	if (capture_flag)
     {
+		// Defining kernel structure
 		std::pair<int, int> kernel_1 (start_X+1*get_direction(playernum),start_Y-1);
 		std::pair<int, int> kernel_2 (start_X+1*get_direction(playernum),start_Y+1);
 		std::pair<int, int> kernel_3 (start_X+2*get_direction(playernum),start_Y-2);
@@ -318,6 +307,7 @@ bool draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 		auto p_ptr = draughts::model::model::get_piece_from_position(start_X, start_Y);
 
 		/////////// For Piece and King ///////////
+		// Is move on a kernel?
 		if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum, false)
 			&& draughts::model::model::check_kernel(kernel_2, kernel_4, playernum, false)
             && typeid(*p_ptr) == typeid(draughts::model::piece))
@@ -426,6 +416,7 @@ bool draughts::model::model::valid_for_second_move(int playernum, int start_X, i
             }
             return true;
 		}
+		// force second move by capture second piece after first capture
 		else if (draughts::model::model::check_kernel(kernel_1, kernel_3, playernum, true) && typeid(*p_ptr) == typeid(draughts::model::king))
 		{
 			// forced move to kernel_3
@@ -487,11 +478,15 @@ bool draughts::model::model::check_kernel(std::pair<int, int> kernel_down,
 
 void draughts::model::model::capture(int killer_ID, std::pair<int, int> positionRC)
 {
+	// Turn capture flag on when capturing is done and turn of after turn.
+	// This is used to check for second move
 	capture_flag = true;
 
+	// Remove the opposite player id token at capturing if owner id is different from killer id
     auto captured_piece = draughts::model::model::get_piece_from_position(positionRC.first, positionRC.second);
     if (captured_piece->get_ownerID() != killer_ID)
     {
+		// Remove player 1 token if the killer id is player 2 else vice versa
         if (killer_ID != player1->get_player_ID())
         {
            player1_pieces.erase(std::remove(player1_pieces.begin(), player1_pieces.end(), (*captured_piece)), player1_pieces.end());
@@ -573,19 +568,21 @@ void draughts::model::model::make_move(int playernum,
 
 void draughts::model::model::turner()
 {
-    /* turn has ended, give turn to the other player */
+    // turn has ended, give turn to the other player */
     turn = !turn;
 	capture_flag = false;
 }
 
 void draughts::model::model::add_player(const std::string& p)
 {
+	// If player is not in roster then push player to vector
 	if(!draughts::model::model::player_exists(p)){
         auto temp_player = draughts::model::player(p);
 		player_vector.push_back(temp_player);
 		std::cout << "Successfully added " << p << " to the player roster."
         << std::endl;
 	}
+	// If not prompt that player p is already in roster
 	else{
 		std::cout << p <<" have already been added to the player roster."
 		<< std::endl;
@@ -594,6 +591,7 @@ void draughts::model::model::add_player(const std::string& p)
 
 bool draughts::model::model::player_exists(const std::string& pname)
 {
+	// Iterate trough player vector and return true if name is found in vector
     bool player_exists = false;
     for (auto it = player_vector.begin(); it != player_vector.end(); ++it)
     {
@@ -605,6 +603,7 @@ bool draughts::model::model::player_exists(const std::string& pname)
 
 bool draughts::model::model::player_exists(int pID)
 {
+	// Iterate trough player vector and return true if ID is found in vector
     bool player_exists = false;
     for (auto it = player_vector.begin(); it != player_vector.end(); ++it)
     {
@@ -616,6 +615,7 @@ bool draughts::model::model::player_exists(int pID)
 
 int draughts::model::model::get_current_player(void)
 {
+	// If turn is true then it is player 1 turns and vice versa
     if (turn)
         return (*player1).get_player_ID();
     else
@@ -626,7 +626,7 @@ std::map<int, std::string> draughts::model::model::get_player_list(void)
     const
 {
     std::map<int, std::string> nameslist;
-
+	// Iterate and insert names to nameslist and finally return loaded namelist
     for (auto it = player_vector.begin(); it != player_vector.end(); ++it)
 		nameslist.insert(std::make_pair((*it).get_player_ID(),(*it).get_player_name()));
 
