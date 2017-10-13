@@ -156,6 +156,7 @@ bool draughts::model::model::validate_move(int playernum,
 
     auto p_ptr = draughts::model::model::get_piece_from_position(start_X, start_Y);
     if (p_ptr && p_ptr->get_ownerID() != playernum)
+		return false;
     
 	std::pair<int, int> end (end_row,end_col);
     /********************/
