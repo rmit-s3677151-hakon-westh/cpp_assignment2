@@ -482,6 +482,7 @@ bool draughts::model::model::check_kernel(std::pair<int, int> kernel_down,
     }
     else
     {
+        std::cout << "Invalid move" << std::endl;
         return false;
     }
 }
