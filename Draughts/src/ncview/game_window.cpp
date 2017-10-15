@@ -28,18 +28,23 @@ void draughts::ncview::game_window::activate(void)
         {
             std::pair<std::pair<int,int>,std::pair<int,int>> move_coords;
             move_coords = get_move_input();
+            // ask the player for a new move untill it is a valid one
             while(!(themodel->validate_move(playernum, move_coords.first.first,
                 move_coords.first.second, move_coords.second.first,
                 move_coords.second.second, true)))
             {
                 move_coords = get_move_input();
             }
+            // move the piece
             themodel->make_move(playernum, move_coords.first.first,
                 move_coords.first.second, move_coords.second.first,
                 move_coords.second.second);
+            // check if the piece is allowed to make a second move
             themodel->valid_for_second_move(playernum, move_coords.second.first, move_coords.second.second);
+            // check if there is a winner
             if (themodel->check_winner())
                 return;
+            // end of turn
             themodel->turner();
         }
         catch(std::exception& ex)

@@ -18,6 +18,7 @@ draughts::model::model * draughts::model::model::get_instance(void)
 
 int draughts::model::model::get_player_score(int player_ID)
 {
+    // fetch and return player score from the designated pointers
     if (player_ID == player1->get_player_ID())
         return player1->get_player_score();
     return player2->get_player_score();
@@ -26,14 +27,16 @@ int draughts::model::model::get_player_score(int player_ID)
 void draughts::model::model::start_game(int plr1, int plr2)
 {
     // Validate players are in roster
-	if(!draughts::model::model::player_exists(plr1) ||
+	if (!draughts::model::model::player_exists(plr1) ||
 		!draughts::model::model::player_exists(plr2))
 	{
 		// If player 1 or player is not in roster promt user
-		if(!draughts::model::model::player_exists(plr1)){
+		if (!draughts::model::model::player_exists(plr1))
+        {
 			std::cerr << plr1 << " ID do not exist in the roster" << std::endl;
 		}
-		if(!draughts::model::model::player_exists(plr2)){
+		if (!draughts::model::model::player_exists(plr2))
+        {
 			std::cerr << plr2 << " ID do not exist in the roster" << std::endl;
 		}
 	return;
@@ -59,19 +62,23 @@ void draughts::model::model::create_tokens(int player_in_game, int plrID)
 {
 	// Set token
 	char token;
-	if(player_in_game == 1){
+	if (player_in_game == 1)
+    {
 		token = 'x';
 	}
-	else{
+	else
+    {
 		token = 'o';
 	}
 
 	// Create pieces
 	for (int piece = 0; piece < 12; ++piece){
-		if(player_in_game == 1){
+		if (player_in_game == 1)
+        {
 			player1_pieces.push_back(draughts::model::piece(plrID, token));
 		}
-		else{
+		else
+        {
 			player2_pieces.push_back(draughts::model::piece(plrID, token));
 		}
 	}
@@ -116,10 +123,12 @@ void draughts::model::model::initialise_board(){
 
 bool draughts::model::model::check_winner()
 {
+    // check if either of the players has lost all their pieces or cannot move
     if (player1_pieces.empty() || player2_pieces.empty()
         || !has_a_valid_point(player1->get_player_ID()) || !has_a_valid_point(player2->get_player_ID()))
     {
         std::string winner;
+        // find out who lost all their pieces/cannot make move and announce the winner
         if (player2_pieces.empty() || !has_a_valid_point(player2->get_player_ID()))
             winner = player1->get_player_name();
         else
@@ -134,6 +143,7 @@ bool draughts::model::model::check_winner()
 
 std::string draughts::model::model::get_player_name(int id)
 {
+    // find player from id and return name
     for (auto p_it = player_vector.begin(); p_it != player_vector.end(); ++p_it)
     {
         if (id == p_it->get_player_ID())
@@ -144,6 +154,7 @@ std::string draughts::model::model::get_player_name(int id)
 
 char draughts::model::model::get_token(int x ,int y)
 {
+    // find piece from position and get its token
     auto p_ptr = draughts::model::model::get_piece_from_position(x, y);
     if (p_ptr)
         return p_ptr->get_token();
@@ -157,7 +168,7 @@ bool draughts::model::model::validate_move(int playernum,
     auto p_ptr = draughts::model::model::get_piece_from_position(start_X, start_Y);
     if (p_ptr && p_ptr->get_ownerID() != playernum)
 		return false;
-    
+
 	std::pair<int, int> end (end_row,end_col);
     /********************/
     /* Kernel structure */
@@ -168,7 +179,7 @@ bool draughts::model::model::validate_move(int playernum,
     //    [5]  [6]		<- down
     // [7]       [8]	<- up
 
-	
+
 	// Defining kernel structure
 	std::pair<int, int> kernel_1 (start_X+1*get_direction(playernum),start_Y-1);
 	std::pair<int, int> kernel_2 (start_X+1*get_direction(playernum),start_Y+1);
@@ -250,12 +261,7 @@ int draughts::model::model::get_direction(int playernum)
 
 bool draughts::model::model::has_a_valid_point(int id)
 {
-    // tjek hvilken spiller TODO
-    // for spillers pieces tjek om de kan flytte
-    //  - udregn kernels
-    //  - tjek validate_move for hvert piece's position og udregnede kernels
-    // hvis et af piecesne kan flytte så return true
-    // ellers return false
+    // determine which player to check
     auto it = player1_pieces.begin();
     auto it_stop = player1_pieces.end();
     if (id == player2->get_player_ID())
@@ -263,6 +269,7 @@ bool draughts::model::model::has_a_valid_point(int id)
         it = player2_pieces.begin();
         it_stop = player2_pieces.end();
     }
+    // iterate through every piece and test all its kernels
     for (it; it != it_stop; ++it)
     {
         auto kernels = get_kernels(id, it->get_positionX(), it->get_positionY());
@@ -461,18 +468,20 @@ bool draughts::model::model::valid_for_second_move(int playernum, int start_X, i
 bool draughts::model::model::check_kernel(std::pair<int, int> kernel_down,
     std::pair<int, int> kernel_up, int playernum, bool should_capture)
 {
+    // check if out of bound and if the potential capture piece is not the player's own
     if(!get_piece_from_position(kernel_up.first,kernel_up.second)
         && !(kernel_up.first < 1 || kernel_up.first > HEIGHT || kernel_up.second < 1 || kernel_up.second > WIDTH)
         && get_piece_from_position(kernel_down.first,kernel_down.second)
         && get_piece_from_position(kernel_down.first,kernel_down.second)->get_ownerID() != playernum)
     {
+        // only capture the designated piece if told so, this ensures that we
+        // can use the method for as a check and a check + action
         if (should_capture)
             capture(playernum, kernel_down);
         return true;
     }
     else
     {
-        // TODO husk at giv besked i validate_move std::cout << "Invalid move" << std::endl;
         return false;
     }
 }
@@ -503,6 +512,8 @@ void draughts::model::model::capture(int killer_ID, std::pair<int, int> position
 
 void draughts::model::model::check_if_piece_to_king(int player_ID, int pos_X, int pos_Y)
 {
+    // check if any of player1's pieces has reached the end
+    // if so transform that piece to a king
     if (player_ID == player1->get_player_ID() && pos_X == HEIGHT)
     {
         auto p_ptr = draughts::model::model::get_piece_from_position(pos_X, pos_Y);
@@ -512,6 +523,8 @@ void draughts::model::model::check_if_piece_to_king(int player_ID, int pos_X, in
                 *it = draughts::model::king(player_ID, p_ptr->get_token(), p_ptr->get_positionXY());
         }
     }
+    // check if any of player2's pieces has reached the end
+    // if so transform that piece to a king
     else if (player_ID == player2->get_player_ID() && pos_X == 1)
     {
         auto p_ptr = draughts::model::model::get_piece_from_position(pos_X, pos_Y);
@@ -525,6 +538,8 @@ void draughts::model::model::check_if_piece_to_king(int player_ID, int pos_X, in
 
 boost::optional<draughts::model::piece&> draughts::model::model::get_piece_from_position(int pos_x, int pos_y)
 {
+    // goes through player1/2_pieces and see if positions match
+    // return reference to the found piece else return empty reference
     auto input_positionXY = std::make_pair(pos_x, pos_y);
     for (auto p1_it = player1_pieces.begin(); p1_it != player1_pieces.end(); ++p1_it)
     {
@@ -542,8 +557,8 @@ boost::optional<draughts::model::piece&> draughts::model::model::get_piece_from_
 void draughts::model::model::make_move(int playernum,
         int start_X, int start_Y, int end_row, int end_col)
 {
+    // simplye moves the piece and checks if it should be transformed into a king
     auto p_ptr = draughts::model::model::get_piece_from_position(start_X, start_Y);
-    //std::cout << "before positionXY: " << (*p_ptr)->get_positionX() << (*p_ptr)->get_positionY() << std::endl;
     if (p_ptr)
     {
         p_ptr->set_positionXY(std::make_pair(end_row, end_col));
@@ -551,20 +566,10 @@ void draughts::model::model::make_move(int playernum,
     }
     else
     {
+        // this should never happen, but has been implemented to ensure that
+        // segmentation faults do not occur
         std::cerr << "Piece not found, something went horribly wrong..." << std::endl;
     }
-
-    //std::cout << "after positionXY: " << (*p_ptr)->get_positionX() << (*p_ptr)->get_positionY() << std::endl;
-
-    // TODO: DETTE ER EGENTLIG REKURSION! FIX
-    // TODO: while(valid_for_second_move());
-    //valid_for_second_move(playernum, end_row, end_col);
-
-    // while (valid_for_second_move) DETTE ER EGENTLIG REKURSION! FIX TODO
-    //      prompt user for choice
-    //      themodel->make_forced_move()
-
-    /* end of turn */
 }
 
 void draughts::model::model::turner()
